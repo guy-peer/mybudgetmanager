@@ -1,0 +1,218 @@
+body{
+    width: 100%;
+    overflow: hidden;
+   margin: 0 !important;
+    padding: 0 !important;
+    flex: auto;
+
+}
+
+#allMenus{
+    background-color: darkgray;
+    width: 100%;
+    display: inline-block;
+}
+
+
+#logo{
+    height: 4vh;
+    width: 100%;
+}
+
+#imgLogo{
+    height: 4vh;
+    padding-top: 1vh;
+    padding-left: 10%;
+    float: left;
+}
+
+
+
+#links{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+#links li{
+    display: inline;
+    width:15vh;
+    float: left;
+    padding-left: 10vh;
+    /*padding-top: 1vh;*/
+    text-align: center;
+}
+
+#links li a{
+    text-decoration: none;
+    color: #FFFFFF;
+    display: inline-block;
+    width:10vh;
+    padding-right: 1vh;
+}
+
+#links li a:hover{
+    background-color: #FFFFFF;
+    color: #FF9900;
+}
+
+#userDetailsDesk{
+    width: 80%;
+    background-color: lightgray;
+    margin-left: 10%;
+    display: inline-block;
+
+}
+#userDetailsMobile {
+   display: none;
+}
+#userDetailsDesk ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#showDetailsDesk ul li{
+    display: inline;
+    width:20vh;
+    float: left;
+    text-align: center;
+    padding-left: 14%;
+    color: #FFFFFF;
+}
+#showDetailsDesk ul li a{
+    color: #E2062C;
+}
+#showDetailsDesk{
+    color: #FFFFFF;
+    list-style-type: none;
+}
+#showDetailsMobile{
+    display: none;
+}
+
+#allCont{
+    width: 60%;
+    background-color: #FF9900;
+    margin-left: 20%;
+    text-align: center;
+    margin-top: 0;
+    list-style-type: none;
+    display: inline-block;
+
+
+}
+
+
+#Items-List{
+    list-style-type: none;
+    padding-left: inherit;
+
+
+}
+
+#Items-List li{
+    border-bottom-style: solid;
+    border-bottom-color: #FFFFFF;
+
+}
+
+.ui-state-focus { outline: none; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+
+    #mobileMenu{
+        text-decoration: none;
+        color: #FFFFFF;
+        display: inline-block;
+        width:5vh;
+        left:5%;
+    }
+    #logo{
+        height: 4vh;
+        width: 100%;
+        display: inline-block;
+    }
+
+
+    #imgLogo{
+        height: 100%;
+        padding-top: 1vh;
+        padding-left: 20%;
+        width: 60%;
+
+
+    }
+
+
+    #menu{
+        display: none;
+        padding: 0;
+    }
+
+
+    #userDetailsDesk{
+       display: none;
+
+    }
+    #userDetailsMobile{
+        display: inline-block;
+        width: 100%;
+        background-color: lightgray;
+        margin-left: 10%;
+    }
+
+    #showDetailsMobile{
+        display: inline-block;
+    }
+
+
+
+
+    /*#userName{
+        width: 30%;
+    }
+    #userDetails ul li{
+        width:100%;
+        text-align: center;
+        padding-left: 35%;
+        font-size: 1em;
+        height: 2%;
+        display: inline;
+
+    }*/
+
+    #allCont {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1%;
+        display: inline-block;
+        font-size: 65%;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+}

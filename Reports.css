@@ -1,0 +1,149 @@
+body{
+    width: 100%;
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: auto;
+
+}
+
+#allMenus{
+    background-color: darkgray;
+    width: 100%;
+    display: inline-block;
+}
+
+
+#logo{
+    height: 4vh;
+    width: 100%;
+}
+
+#imgLogo{
+    height: 4vh;
+    padding-top: 1vh;
+    padding-left: 10%;
+    float: left;
+}
+
+#burgerMenu a{
+    height: 3vh;
+    text-decoration: none;
+}
+
+#links{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+#links li{
+    display: inline;
+    width:15vh;
+    float: left;
+    padding-left: 10vh;
+    /*padding-top: 1vh;*/
+    text-align: center;
+}
+
+#links li a{
+    text-decoration: none;
+    color: #FFFFFF;
+    display: inline-block;
+    width:10vh;
+    padding-right: 1vh;
+}
+
+#links li a:hover{
+    background-color: #FFFFFF;
+    color: #FF9900;
+}
+
+#userDetails{
+    width: 80%;
+    background-color: lightgray;
+    margin-left: 10%;
+    display: inline-block;
+
+}
+#userDetails ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#userDetails ul li{
+    display: inline;
+    width:20vh;
+    float: left;
+    text-align: center;
+    padding-left: 14%;
+    color: #FFFFFF;
+}
+#userDetails ul li a{
+    color: #E2062C;
+}
+
+#reportForm{
+    top: 30%;
+
+    width: 30%;
+    height: 25vh;
+    margin-left: 35%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    font-size: 1.5em;
+    background-color: #FF9900;
+    text-align: center;
+    color: #FFFFFF;
+}
+#Retrieve {
+    color: #FFFFFF;
+    background-color: #53d6a5;
+    border: none;
+    top: 3vh;
+    height: 6vh;
+    width: 20%;
+}
+
+#Cancel{
+    color: #FFFFFF;
+    background-color: #E2062C;
+    border: none;
+    top: 3vh;
+    height: 6vh;
+    width: 20%;
+}
+#showReport{
+    height: auto;
+    width: 30%;
+    margin-left: 35%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 1em;
+    background-color: #FFFFFF;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#Items-List{
+    list-style-type: none;
+    padding-left: 2%;
+    color: black;
+    text-align: left;
+    border-style: dashed;
+    border-color: darkgray;
+
+
+}
+
+#Items-List li{
+    border-bottom-style: solid;
+    border-bottom-color: #FFFFFF;
+
+}
+
+.ui-state-focus { outline: none; }
+

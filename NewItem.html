@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="NewItem.css" type="text/css"/>
+    <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+    <script src=NewItem.js></script>
+
+
+</head>
+<body>
+<div id="allMenus">
+
+    <div id="logo">
+        <img id="imgLogo" src="budgetlogo2915.png">
+    </div>
+    <div id="menu">
+    <ul id="links">
+        <li><a href="MainPage.html">Home</a></li>
+        <li><a href="Settings.html">Settings</a></li>
+        <li><a href="Reports.html">Reports</a></li>
+        <li><a href="#" id="logoutb">Log Out</a></li>
+    </ul>
+    </div>
+</div>
+<div id = "userDetails">
+    <ul>
+        <li><p id ="userName"></p></li>
+        <li><p id ="monthlyBudget"></p></li>
+        <li><p id = "leftToSpendToday"></p></li>
+    </ul>
+
+
+</div>
+<div class="mainContainer">
+    <div class="optionsButtons" id="optionsButtons">
+        <button  id="Ready">Ready</button>
+        <button  id="Custom">Custom</button>
+    </div>
+
+    <div class="container1">
+        <div id="containerCat1">
+        <label for="Category1">Please select The Category</label>
+        <select name="Category" id="Category1">
+            <option value="">-- Please Select --</option>
+
+        </select>
+            </div>
+        <div id="containerSub1">
+        <label for="SubCats1">Please select The Subcategory</label>
+        <select name ="SubCats "id="SubCats1">
+            <option value="">--please select--</option>
+        </select>
+            </div>
+        <div id="containerText1">
+            <label for="Amount1">Please Enter Amount</label>
+        <input type="text" id="Amount1">
+            </div>
+        <div id="containerBut1">
+        <button  id="savenewitem1">Save</button>
+            <button  id="Back1">Cancel</button>
+        </div>
+    </div>
+
+
+
+<div class="container2">
+    <div id="containerCat2">
+        <div>
+        <small>any item u will create will be added to the ready list</small>
+        </div>
+        <label for="Category2">Please Enter The Category</label>
+        <input type="text" name="Category2" id="Category2">
+    </div>
+    <div id="containerSub2">
+        <label for="SubCats2">Please Enter The Subcategory</label>
+        <input type="text" name ="SubCats2" id="SubCats2">
+    </div>
+    <div id="containerText2">
+        <label for="Amount2">Please Enter Amount</label>
+        <input type="text" id="Amount2">
+    </div>
+    <div id="containerBut2">
+        <button  id="savenewitem2">Save</button>
+        <button  id="Back2">Cancel</button>
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+</body>
+</html>
+
+
+
+
