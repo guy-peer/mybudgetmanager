@@ -99,9 +99,6 @@ body{
 }
 
 
-#showDetailsMobile{
-    display: none;
-}
 
 #allCont{
     width: 60%;
@@ -154,6 +151,7 @@ body{
         left:5%;
         float: left;
         z-index: 5000;
+        margin-left: 5%;
     }
     #logo{
         height: 4vh;
@@ -179,14 +177,21 @@ body{
         background-color: darkslategray;
         height: 100%;
         width: 40%;
-        padding-top: 5%;
+        padding-top: 2%;
         padding-left: 0%;
+        position: fixed;
+        z-index: 1000;
     }
     #sideMenu li a{
         text-decoration: none;
         color: #FFFFFF;
+        padding-bottom: 5%;
 
 
+    }
+    #closeMobileMenuButton{
+       left: 2%;
+        margin-top: -2%;
     }
 
     #linksMenu{
@@ -211,27 +216,7 @@ body{
     #showDetailsMobile{
         display: inline-block;
     }
-    #sideMenu{
-        float: left;
-        display: inline-block;
-        z-index: 1000;
-        position: fixed;
-    }
 
-
-
-    /*#userName{
-        width: 30%;
-    }
-    #userDetails ul li{
-        width:100%;
-        text-align: center;
-        padding-left: 35%;
-        font-size: 1em;
-        height: 2%;
-        display: inline;
-
-    }*/
 
     #allCont {
         width: 100%;

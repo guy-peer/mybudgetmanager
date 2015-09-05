@@ -1,7 +1,7 @@
 Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHpAJIo0hyIxAasnru1adn1og");
 var categoryToSubCategory = {};
 $(document).ready(function() {
-
+    $("#sideMenu").hide();
     var userName = (function () {
         if (Parse.User.current()) {
             return ("logged in as:" + " " + Parse.User.current().get("username") + " " + "<a href='#'  id=userlogout  >(logout)</a>"  );
@@ -199,6 +199,19 @@ $(document).ready(function() {
     $("#monthlyBudget").html(MBudget);
     $("#leftToSpendToday").html(mobileDBudget);
 
+
+    var MSM = $("#mobileMenuButton");
+    MSM.click(function(event) {
+        $("#sideMenu").slideDown(400);
+
+
+    });
+    var CMSM = $("#closeMobileMenuButton");
+    CMSM.click(function(event) {
+        $("#sideMenu").slideUp(200);
+
+
+    });
 });
 
 

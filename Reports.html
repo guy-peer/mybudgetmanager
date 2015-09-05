@@ -8,35 +8,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
-    <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+    <script src="https://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
     <script src=Reports.js></script>
 
 
 </head>
 <body>
+<div id="sideMenu">
+    <li><a id="closeMobileMenuButton" href="#menu">&#9776;</a></li>
+    <li><a href="MainPage.html">Home</a></li>
+    <li><a href="Settings.html">Settings</a></li>
+    <li><a href="Reports.html">Reports</a></li>
+    <li><a href="#" id="logouta">Log Out</a></li>
+</div>
+
 <div id="allMenus">
 
     <div id="logo">
-
+        <a id="mobileMenuButton" href="#menu">&#9776;</a>
         <img id="imgLogo" src="budgetlogo2915.png">
     </div>
-    <div id="menu">
+
+
+    <div id="linksMenu">
         <ul id="links">
-            <li><a href="NewItem.html">Add New Item</a></li>
+            <li><a href="MainPage.html">Home</a></li>
             <li><a href="Settings.html">Settings</a></li>
             <li><a href="Reports.html">Reports</a></li>
             <li><a href="#" id="logoutb">Log Out</a></li>
         </ul>
     </div>
 </div>
-<div id = "userDetails">
-    <ul>
-        <li><p id ="userName"></p></li>
-        <li><p id ="monthlyBudget"></p></li>
-        <li><p id = "leftToSpendToday"></p></li>
-    </ul>
 
 
+
+
+<div id="userDetailsDesk">
+    <li id="showDetailsDesk">
+        <ul>
+            <li><p class ="userName"></p></li>
+            <li><p class ="monthlyBudget"></p></li>
+            <li><p class = "leftToSpendToday"></p></li>
+        </ul>
+    </li>
+</div>
+<div id="userDetailsMobile">
+    <li id="showDetailsMobile">
+        <h3>Tap me to show more details</h3>
+        <ul>
+            <li><p class ="userName"></p></li>
+            <li><p class ="monthlyBudget"></p></li>
+            <li><p class = "leftToSpendToday"></p></li>
+        </ul>
+    </li>
 </div>
 <div id="reportForm">
     <div id="Dates">

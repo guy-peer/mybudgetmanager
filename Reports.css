@@ -31,7 +31,7 @@ body{
     text-decoration: none;
 }
 
-#links{
+#linksMenu{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -61,27 +61,38 @@ body{
     color: #FF9900;
 }
 
-#userDetails{
+#userDetailsDesk{
     width: 80%;
     background-color: lightgray;
     margin-left: 10%;
     display: inline-block;
 
 }
-#userDetails ul{
+#userDetailsMobile {
+    display: none;
+}
+#showDetailsMobile{
+    display: none;
+}
+#showDetailsDesk {
+    color: #FFFFFF;
+    list-style-type: none;
+}
+#userDetailsDesk ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-#userDetails ul li{
+#showDetailsDesk  li{
     display: inline;
     width:20vh;
     float: left;
     text-align: center;
     padding-left: 14%;
     color: #FFFFFF;
+
 }
-#userDetails ul li a{
+#showDetailsDesk li a{
     color: #E2062C;
 }
 
@@ -146,4 +157,80 @@ body{
 }
 
 .ui-state-focus { outline: none; }
+@media screen and (max-width: 1024px) {
 
+        #mobileMenuButton{
+            text-decoration: none;
+            color: #FFFFFF;
+            display: inline-block;
+            width:5vh;
+            left:5%;
+            float: left;
+            z-index: 5000;
+            margin-left: 5%;
+        }
+        #logo{
+            height: 4vh;
+            width: 100%;
+            display: inline-block;
+        }
+
+
+        #imgLogo{
+            height: 100%;
+            padding-top: 1vh;
+            padding-left: 7%;
+            width: 60%;
+
+
+        }
+        #sideMenu {
+            display: inline-block;
+            list-style: none;
+            color: #FFFFFF;
+            float: left;
+            margin-left: 0%;
+            background-color: darkslategray;
+            height: 100%;
+            width: 40%;
+            padding-top: 2%;
+            padding-left: 0%;
+            position: fixed;
+            z-index: 1000;
+        }
+        #sideMenu li a{
+            text-decoration: none;
+            color: #FFFFFF;
+            padding-bottom: 5%;
+
+
+        }
+        #closeMobileMenuButton{
+            left: 2%;
+            margin-top: -2%;
+        }
+
+        #linksMenu{
+            display: none;
+            padding: 0;
+        }
+
+
+        #userDetailsDesk{
+            display: none;
+
+        }
+        #userDetailsMobile{
+            display: inline-block;
+            width: 100%;
+            background-color: lightgray;
+
+            margin-left: 0;
+            padding-left: 20%;
+        }
+
+        #showDetailsMobile{
+            display: inline-block;
+        }
+
+}

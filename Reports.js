@@ -1,6 +1,7 @@
 var expanseDetails = {};
 $(document).ready(function() {
     Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHpAJIo0hyIxAasnru1adn1og");
+    $("#sideMenu").hide();
     $("#showReport").hide();
     $("#Items-List").hide();
     var userName = (function () {
@@ -206,7 +207,10 @@ $(document).ready(function() {
                             $('#Items-List').append(myLi);
                         }
                     }
-
+                    $("#showDetailsMobile").accordion({
+                        active: false,
+                        collapsible: true
+                    });
 
 
 
@@ -217,8 +221,21 @@ $(document).ready(function() {
         })();
 
 
-    })
+    });
 
+
+    var MSM = $("#mobileMenuButton");
+    MSM.click(function(event) {
+        $("#sideMenu").slideDown(400);
+
+
+    });
+    var CMSM = $("#closeMobileMenuButton");
+    CMSM.click(function(event) {
+        $("#sideMenu").slideUp(200);
+
+
+    });
 });
 
 

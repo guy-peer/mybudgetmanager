@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 
 
-
+    $("#sideMenu").hide();
 
     var userName = (function () {
         if (Parse.User.current()) {
@@ -132,4 +132,17 @@ var CBudget = (function () {
         $("#current-user").html("");
     }
 });
+
+    var MSM = $("#mobileMenuButton");
+    MSM.click(function(event) {
+        $("#sideMenu").slideDown(400);
+
+
+    });
+    var CMSM = $("#closeMobileMenuButton");
+    CMSM.click(function(event) {
+        $("#sideMenu").slideUp(200);
+
+
+    });
 });

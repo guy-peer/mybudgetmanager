@@ -168,8 +168,14 @@ $(document).ready(function() {
     });
     var MSM = $("#mobileMenuButton");
         MSM.click(function(event) {
-            $("#sideMenu").toggle();
-            $("#mobileMenuButton").slideToggle( "slow" );
+            $("#sideMenu").slideDown(400);
+
+
+    });
+    var CMSM = $("#closeMobileMenuButton");
+    CMSM.click(function(event) {
+        $("#sideMenu").slideUp(200);
+
 
     });
 
