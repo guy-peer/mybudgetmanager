@@ -110,8 +110,10 @@ $(document).ready(function() {
 
                         var myH3 = document.createElement("h3");
                         myH3.textContent = key +":"+ " "+ keyValue[key];
-
+                        var editButton = document.createElement("button");
+                        editButton.textContent = "Edit";
                         var existingItemExpanseDetails = expanseDetails[key];
+
 
                         myLi.appendChild(myH3);
 
@@ -120,7 +122,7 @@ $(document).ready(function() {
 
                             var myP = document.createElement("p");
                             myP.textContent = existingItemExpanseDetails[i].subCategory + ' - ' + existingItemExpanseDetails[i].amount + ' - ' + existingItemExpanseDetails[i].date;
-                            document.createElement("button");
+
                             myDiv.appendChild(myP);
                         }
 

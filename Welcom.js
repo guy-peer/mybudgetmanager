@@ -6,5 +6,5 @@
 
 
 function Sign_up() {
-    location="http://localhost:63342/BudgetM/SignUp.html";
+    location="SignUp.html";
 }
