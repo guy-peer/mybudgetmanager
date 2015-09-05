@@ -4,9 +4,7 @@
 $(document).ready(function() {
 Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHpAJIo0hyIxAasnru1adn1og");
     $("#login").click(function(event){
-    if ($.browser.webkit) {
-        $('input[name="password"]').attr('autocomplete', 'off');
-    }
+
     var name = $("#username").val();
     var pass = $("#password").val();
     Parse.User.logIn(name, pass, {
@@ -22,9 +20,7 @@ $("#signUp").click(function(event){
     location = "SignUp.html";
 
 });
-    if ($.browser.webkit) {
-        $('input[name="password"]').attr('autocomplete', 'off');
-    }
+    
 
 
 
