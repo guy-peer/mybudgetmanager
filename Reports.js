@@ -48,9 +48,9 @@ $(document).ready(function() {
 
 
 
-    $("#userName").html(userName);
-    $("#monthlyBudget").html(MBudget);
-    $("#leftToSpendToday").html(mobileDBudget);
+    $(".userName").html(userName);
+    $(".monthlyBudget").html(MBudget);
+    $(".leftToSpendToday").html(mobileDBudget);
 
 
 
@@ -65,8 +65,11 @@ $(document).ready(function() {
         }
     });
 
-    $("#user_name").html(userName);
 
+    $("#showDetailsMobile").accordion({
+        active: false,
+        collapsible: true
+    });
     $("#SDatePicker").datepicker();
     $("#EDatePicker").datepicker();
 
@@ -207,10 +210,7 @@ $(document).ready(function() {
                             $('#Items-List').append(myLi);
                         }
                     }
-                    $("#showDetailsMobile").accordion({
-                        active: false,
-                        collapsible: true
-                    });
+
 
 
 

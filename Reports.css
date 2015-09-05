@@ -159,78 +159,134 @@ body{
 .ui-state-focus { outline: none; }
 @media screen and (max-width: 1024px) {
 
-        #mobileMenuButton{
-            text-decoration: none;
-            color: #FFFFFF;
-            display: inline-block;
-            width:5vh;
-            left:5%;
-            float: left;
-            z-index: 5000;
-            margin-left: 5%;
-        }
-        #logo{
-            height: 4vh;
-            width: 100%;
-            display: inline-block;
-        }
+    #mobileMenuButton{
+        text-decoration: none;
+        color: #FFFFFF;
+        display: inline-block;
+        width:5vh;
+        left:5%;
+        float: left;
+        z-index: 5000;
+        margin-left: 5%;
+    }
+    #logo{
+        height: 4vh;
+        width: 100%;
+        display: inline-block;
+    }
 
 
-        #imgLogo{
-            height: 100%;
-            padding-top: 1vh;
-            padding-left: 7%;
-            width: 60%;
+    #imgLogo{
+        height: 100%;
+        padding-top: 1vh;
+        padding-left: 7%;
+        width: 60%;
 
 
-        }
-        #sideMenu {
-            display: inline-block;
-            list-style: none;
-            color: #FFFFFF;
-            float: left;
-            margin-left: 0%;
-            background-color: darkslategray;
-            height: 100%;
-            width: 40%;
-            padding-top: 2%;
-            padding-left: 0%;
-            position: fixed;
-            z-index: 1000;
-        }
-        #sideMenu li a{
-            text-decoration: none;
-            color: #FFFFFF;
-            padding-bottom: 5%;
+    }
+    #sideMenu {
+        display: inline-block;
+        list-style: none;
+        color: #FFFFFF;
+        float: left;
+        margin-left: 0%;
+        background-color: darkslategray;
+        height: 100%;
+        width: 40%;
+        padding-top: 2%;
+        padding-left: 0%;
+        position: fixed;
+        z-index: 1000;
+    }
+    #sideMenu li a{
+        text-decoration: none;
+        color: #FFFFFF;
+        padding-bottom: 5%;
 
 
-        }
-        #closeMobileMenuButton{
-            left: 2%;
-            margin-top: -2%;
-        }
+    }
+    #closeMobileMenuButton{
+        left: 2%;
+        margin-top: -2%;
+    }
 
-        #linksMenu{
-            display: none;
-            padding: 0;
-        }
+    #linksMenu{
+        display: none;
+        padding: 0;
+    }
 
 
-        #userDetailsDesk{
-            display: none;
+    #userDetailsDesk{
+        display: none;
 
-        }
-        #userDetailsMobile{
-            display: inline-block;
-            width: 100%;
-            background-color: lightgray;
+    }
+    #userDetailsMobile{
+        display: inline-block;
+        width: 100%;
+        background-color: lightgray;
 
-            margin-left: 0;
-            padding-left: 20%;
-        }
+        margin-left: 0;
+        padding-left: 20%;
+    }
 
-        #showDetailsMobile{
-            display: inline-block;
-        }
+    #showDetailsMobile{
+        display: inline-block;
+    }
+
+
+    #reportForm{
+        width: 100%;
+        height: 70%;
+        margin-left: 0%;
+        font-size: 1em;
+        text-align: left;
+
+    }
+    #Retrieve {
+        width: 42%;
+        margin-left: 3%;
+
+    }
+
+    #Cancel{
+        margin-left: 5%;
+        width: 42%;
+    }
+    #showReport{
+
+        width: 100%;
+        margin-left: 0;
+
+
+        font-size: 1em;
+
+        text-align: left;
+        
+    }
+
+    #Items-List{
+        list-style-type: none;
+        padding-left: 2%;
+        color: black;
+        text-align: left;
+        border-style: dashed;
+        border-color: darkgray;
+
+
+    }
+
+    #Items-List li{
+        border-bottom-style: solid;
+        border-bottom-color: #FFFFFF;
+
+    }
+
+
+
+
+
+
+
+
 
 }
