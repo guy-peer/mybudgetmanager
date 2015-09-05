@@ -18,15 +18,23 @@
 
 
 <body>
-
+<div id="sideMenu">
+    <a id="closeMobileMenuButton" href="#menu">&#9776;</a>
+    <li><a href="NewItem.html">Add New Item</a></li>
+    <li><a href="Settings.html">Settings</a></li>
+    <li><a href="Reports.html">Reports</a></li>
+    <li><a href="#" id="logouta">Log Out</a></li>
+</div>
 
     <div id="allMenus">
 
         <div id="logo">
+            <a id="mobileMenuButton" href="#menu">&#9776;</a>
             <img id="imgLogo" src="budgetlogo2915.png">
         </div>
 
-        <div id="menu">
+
+        <div id="linksMenu">
             <ul id="links">
                 <li><a href="NewItem.html">Add New Item</a></li>
                 <li><a href="Settings.html">Settings</a></li>
@@ -39,13 +47,15 @@
 
 
 
-        <div id="userDetailsDesk">
-            <li id="showDetails">
-                    <li><p class ="userName"></p></li>
-                    <li><p class ="monthlyBudget"></p></li>
-                    <li><p class = "leftToSpendToday"></p></li>
-            </li>
-        </div>
+            <div id="userDetailsDesk">
+                <li id="showDetailsDesk">
+                <ul>
+                        <li><p class ="userName"></p></li>
+                        <li><p class ="monthlyBudget"></p></li>
+                        <li><p class = "leftToSpendToday"></p></li>
+                    </ul>
+                </li>
+            </div>
         <div id="userDetailsMobile">
             <li id="showDetailsMobile">
                 <h3>Tap me to show more details</h3>

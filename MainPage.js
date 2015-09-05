@@ -2,7 +2,7 @@ Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHp
 Parse.User.enableRevocableSession();
 $(document).ready(function() {
 
-
+    $("#sideMenu").hide();
     var expanseDetails = {};
 
     var userName = (function () {
@@ -166,7 +166,13 @@ $(document).ready(function() {
         Parse.User.logOut();
         location="Welcom.html";
     });
+    var MSM = $("#mobileMenuButton");
+        MSM.click(function(event) {
+            $("#sideMenu").toggle();
+            $("#mobileMenuButton").slideToggle( "slow" );
 
+    });
 
 
 });
+

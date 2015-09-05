@@ -12,8 +12,13 @@ body{
     width: 100%;
     display: inline-block;
 }
+#slideMenu {
+   display: none;
+}
 
-
+#mobileMenuButton{
+    display: none;
+}
 #logo{
     height: 4vh;
     width: 100%;
@@ -68,26 +73,32 @@ body{
 #userDetailsMobile {
    display: none;
 }
+#showDetailsMobile{
+    display: none;
+}
+#showDetailsDesk {
+    color: #FFFFFF;
+    list-style-type: none;
+}
 #userDetailsDesk ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-#showDetailsDesk ul li{
+#showDetailsDesk  li{
     display: inline;
     width:20vh;
     float: left;
     text-align: center;
     padding-left: 14%;
     color: #FFFFFF;
+
 }
-#showDetailsDesk ul li a{
+#showDetailsDesk li a{
     color: #E2062C;
 }
-#showDetailsDesk{
-    color: #FFFFFF;
-    list-style-type: none;
-}
+
+
 #showDetailsMobile{
     display: none;
 }
@@ -135,12 +146,14 @@ body{
 
 @media screen and (max-width: 1024px) {
 
-    #mobileMenu{
+    #mobileMenuButton{
         text-decoration: none;
         color: #FFFFFF;
         display: inline-block;
         width:5vh;
         left:5%;
+        float: left;
+        z-index: 5000;
     }
     #logo{
         height: 4vh;
@@ -152,14 +165,31 @@ body{
     #imgLogo{
         height: 100%;
         padding-top: 1vh;
-        padding-left: 20%;
+        padding-left: 7%;
         width: 60%;
 
 
     }
+    #sideMenu {
+        display: inline-block;
+        list-style: none;
+        color: #FFFFFF;
+        float: left;
+        margin-left: 0%;
+        background-color: darkslategray;
+        height: 100%;
+        width: 40%;
+        padding-top: 5%;
+        padding-left: 0%;
+    }
+    #sideMenu li a{
+        text-decoration: none;
+        color: #FFFFFF;
 
 
-    #menu{
+    }
+
+    #linksMenu{
         display: none;
         padding: 0;
     }
@@ -173,13 +203,20 @@ body{
         display: inline-block;
         width: 100%;
         background-color: lightgray;
-        margin-left: 10%;
+
+        margin-left: 0;
+        padding-left: 20%;
     }
 
     #showDetailsMobile{
         display: inline-block;
     }
-
+    #sideMenu{
+        float: left;
+        display: inline-block;
+        z-index: 1000;
+        position: fixed;
+    }
 
 
 
