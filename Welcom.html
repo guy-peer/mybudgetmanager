@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Budget Manager</title>
-    <script src='Welcom.js'></script>
+
     <link rel="stylesheet" href="Welcom.css" type="text/css"/>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-
+    <script src='Welcom.js'></script>
 
 </head>
 
@@ -16,14 +16,18 @@
 
 <div class="wrapper">
     <div class="container">
-        <h1>Welcome</h1>
+        <div id="logo">
+            <img id="imgLogo" src="budgetlogo2915.png">
+        </div>
 
         <form class="form">
             <input type="text" id="username" placeholder="Username"><br />
             <input type="password" id="password" placeholder="Password"><br />
-            <input type="button" id="Login" value="Login"><br />
-            <input type="button" value="Sign Up" onclick="Sign_up()"><br />
         </form>
+        <div id="buttons">
+            <button  id="login">Login into your account</button>
+            <button  id="signUp">Sign Up</button>
+        </div>
     </div>
 
 
