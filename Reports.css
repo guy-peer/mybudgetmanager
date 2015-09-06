@@ -30,12 +30,9 @@ body{
     float: left;
 }
 
-#burgerMenu a{
-    height: 3vh;
-    text-decoration: none;
-}
 
-#linksMenu{
+
+#links{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -54,11 +51,12 @@ body{
 #mobileMenuButton{
     display: none;
 }
+
 #links li a{
     text-decoration: none;
     color: #FFFFFF;
     display: inline-block;
-    width:10vh;
+    width: 10vh;
     padding-right: 1vh;
 }
 
