@@ -1,3 +1,7 @@
+html{
+    overflow: hidden;
+}
+
 body{
     width: 100%;
     overflow: hidden;
@@ -168,7 +172,7 @@ body{
         left:5%;
         float: left;
         z-index: 5000;
-        margin-left: 5%;
+        margin-left: 1vh;
     }
     #logo{
         height: 4vh;
@@ -180,7 +184,7 @@ body{
     #imgLogo{
         height: 100%;
         padding-top: 1vh;
-        padding-left: 7%;
+        padding-left: 9%;
         width: 60%;
 
 
@@ -198,6 +202,9 @@ body{
         padding-left: 0;
         position: fixed;
         z-index: 1000;
+    }
+    #sideMenu li{
+        height: 5vh;
     }
     #sideMenu li a{
         text-decoration: none;
@@ -227,7 +234,7 @@ body{
         background-color: lightgray;
 
         margin-left: 0;
-        padding-left: 20%;
+        padding-left: 17%;
     }
 
     #showDetailsMobile{

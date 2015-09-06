@@ -1,9 +1,13 @@
+html{
+    overflow: hidden;
+}
 body{
     width: 100%;
     overflow: hidden;
+
     margin: 0 !important;
     padding: 0 !important;
-    flex: auto;
+    flex: none;
 
 }
 
@@ -304,10 +308,9 @@ body{
     #eraseAll{
         width: 70%;
         margin-left: 0%;
-
-
-
     }
-
+#menu{
+    display: none;
+}
 
 }
