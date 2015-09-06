@@ -161,30 +161,63 @@ body{
 }
 
 @media screen and (max-width: 1024px) {
-    #logo {
-        height: 4vh;
-        width: 100%;
-        display: inline-block;
-    }
 
-    #imgLogo {
-        height: 100%;
-        padding-top: 1vh;
-        padding-left: 20%;
-        width: 60%;
-
-    }
     #mobileMenuButton{
         text-decoration: none;
         color: #FFFFFF;
         display: inline-block;
         width:5vh;
-        left:5%;
+        left:15%;
         float: left;
         z-index: 5000;
-        margin-left: 5%;
+        margin-left: 1vh;
+        margin-top: 0;
     }
-    #menu {
+    #logo{
+        height: 4vh;
+        width: 100%;
+        display: inline-block;
+    }
+
+
+    #imgLogo{
+        height: 100%;
+        padding-top: 1vh;
+        padding-left: 7%;
+        width: 60%;
+
+
+    }
+    #sideMenu {
+        display: inline-block;
+        list-style: none;
+        color: #FFFFFF;
+        float: left;
+        margin-left: 0%;
+        background-color: darkslategray;
+        height: 100%;
+        width: 40%;
+        padding-top: 2%;
+        padding-left: 0%;
+        position: fixed;
+        z-index: 1000;
+    }
+    #sideMenu li{
+        height: 5vh;
+    }
+    #sideMenu li a{
+        text-decoration: none;
+        color: #FFFFFF;
+        padding-bottom: 5%;
+        height: 3vh;
+    }
+    #closeMobileMenuButton{
+        left: 2%;
+        margin-top: 0;
+        margin-left: 1vh;
+    }
+
+    #linksMenu{
         display: none;
         padding: 0;
     }
@@ -275,30 +308,6 @@ body{
 
 
     }
-    #sideMenu {
-        display: inline-block;
-        list-style: none;
-        color: #FFFFFF;
-        float: left;
-        margin-left: 0%;
-        background-color: darkslategray;
-        height: 100%;
-        width: 40%;
-        padding-top: 2%;
-        padding-left: 0%;
-        position: fixed;
-        z-index: 1000;
-    }
-    #sideMenu li a{
-        text-decoration: none;
-        color: #FFFFFF;
-        padding-bottom: 5%;
 
-
-    }
-    #closeMobileMenuButton{
-        left: 2%;
-        margin-top: -2%;
-    }
 
 }

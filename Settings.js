@@ -5,51 +5,47 @@ Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHp
 $(document).ready(function() {
 
 
+    $("#sideMenu").hide();
 
 
 
+        var userName = (function () {
+            if (Parse.User.current()) {
+                return(Parse.User.current().get("username") +" "+"<a href='#'  id=userlogout  >(logout)</a>"  );
 
-    var userName = (function () {
-        if (Parse.User.current()) {
-            return(Parse.User.current().get("username") +" "+"<a href='#'  id=userlogout  >(logout)</a>"  );
+            }
+            else{
+                $("#current-user").html("");
+            }
+        })();
 
-        }
-        else{
-            $("#current-user").html("");
-        }
-    })();
+        var MBudget = (function () {
+            return ("Monthly budget:" +" "+Parse.User.current().get("budget")+" "+"<a href=Settings.html>(Edit)</a>");
+        });
 
-    var MBudget = (function () {
+        var DBudget = (function () {
+            if (Parse.User.current()) {
 
+                var a =(Parse.User.current().get("budget")/31);
+                a = parseFloat(a).toFixed(2);
+                return (a +" Left to spend today");
+            }
+            else{
+                $("#current-user").html("");
+            }
+        })();
 
-        return ("Monthly budget:" +" "+Parse.User.current().get("budget")+" "+"<a href=Settings.html>(Edit)</a>");
+        var mobileDBudget = (function () {
+            if (Parse.User.current()) {
 
-
-
-    });
-    var DBudget = (function () {
-        if (Parse.User.current()) {
-
-            var a =(Parse.User.current().get("budget")/31);
-            a = parseFloat(a).toFixed(2);
-            return (a +" Left to spend today");
-        }
-        else{
-            $("#current-user").html("");
-        }
-    })();
-
-    var mobileDBudget = (function () {
-        if (Parse.User.current()) {
-
-            var a =(Parse.User.current().get("budget")/31);
-            a = parseFloat(a).toFixed(2);
-            return (a +" ");
-        }
-        else{
-            $("#current-user").html("");
-        }
-    })();
+                var a =(Parse.User.current().get("budget")/31);
+                a = parseFloat(a).toFixed(2);
+                return (a +" ");
+            }
+            else{
+                $("#current-user").html("");
+            }
+        })();
 
 
 
@@ -147,4 +143,16 @@ var CBudget = (function () {
         $("#current-user").html("");
     }
 });
+
+    var MSM = $("#mobileMenuButton");
+    MSM.click(function(event) {
+        $("#sideMenu").slideDown(400);
+
+
+    });
+    var CMSM = $("#closeMobileMenuButton");
+    CMSM.click(function(event) {
+        $("#sideMenu").slideUp(200);
+    });
+
 });

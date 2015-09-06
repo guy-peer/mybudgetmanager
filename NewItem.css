@@ -27,14 +27,7 @@ body{
     width: 100%;
 }
 #mobileMenuButton{
-    text-decoration: none;
-    color: #FFFFFF;
-    display: inline-block;
-    width:5vh;
-    left:5%;
-    float: left;
-    z-index: 5000;
-    margin-left: 5%;
+ display: none;
 }
 #imgLogo{
     height: 4vh;
@@ -211,6 +204,17 @@ body{
 
 
 @media screen and (max-width: 1024px) {
+    #mobileMenuButton {
+        text-decoration: none;
+        color: #FFFFFF;
+        display: inline-block;
+        width: 5vh;
+        left: 5%;
+        float: left;
+        z-index: 5000;
+        margin-left: 5%;
+    }
+
     #logo {
         height: 4vh;
         width: 100%;
@@ -220,7 +224,7 @@ body{
     #imgLogo {
         height: 100%;
         padding-top: 1vh;
-        padding-left: 20%;
+        padding-left: 5%;
         width: 60%;
 
     }
@@ -346,12 +350,13 @@ body{
         text-decoration: none;
         color: #FFFFFF;
         padding-bottom: 5%;
-
-
+    }
+    #sideMenu li{
+        height: 5vh;
     }
     #closeMobileMenuButton{
         left: 2%;
-        margin-top: -2%;
+        margin-top: 0;
     }
 
 }
