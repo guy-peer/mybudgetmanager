@@ -107,13 +107,17 @@ $(document).ready(function() {
         }
     });
 
-    $("#logout").click(function (event) {
+    $("#logoutDeskMenu").click(function (event) {
         Parse.User.logOut();
         location = "Welcom.html";
     });
 
 
     $("#userlogout").click(function (event) {
+        Parse.User.logOut();
+        location = "Welcom.html";
+    });
+    $("#logoutSlideMenu").click(function (event) {
         Parse.User.logOut();
         location = "Welcom.html";
     });

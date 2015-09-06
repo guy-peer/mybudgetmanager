@@ -96,7 +96,14 @@ $(document).ready(function() {
         Parse.User.logOut();
         location="Welcom.html";
     });
-
+    $("#logoutDeskMenu").click(function(event){
+        Parse.User.logOut();
+        location="Welcom.html";
+    });
+    $("#logoutSlideMenu").click(function(event){
+        Parse.User.logOut();
+        location="Welcom.html";
+    });
 
 
 

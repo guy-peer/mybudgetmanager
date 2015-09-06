@@ -57,7 +57,22 @@ $(document).ready(function() {
     $("#monthlyBudget").html(MBudget);
     $("#leftToSpendToday").html(mobileDBudget);
 
+    $("#logoutSlideMenu").click(function(event){
+        Parse.User.logOut();
+        location="Welcom.html";
+    });
 
+
+
+
+    $("#logoutDeskMenu").click(function(event){
+        Parse.User.logOut();
+        location="Welcom.html";
+    });
+    $("#userlogout").click(function(event){
+        Parse.User.logOut();
+        location="Welcom.html";
+    });
 
 
     $("#saveNewBudgetAmount").click(function(){
