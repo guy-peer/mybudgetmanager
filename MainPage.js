@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     var userName = (function () {
         if (Parse.User.current()) {
-            return(Parse.User.current().get("username") +" "+"<a href='#'  id=userlogout  >(logout)</a>"  );
+            return(Parse.User.current().get("username") +" "+"<a href='#'  id=userlogout >(logout)</a>"  );
 
         }
         else{
@@ -156,7 +156,7 @@ $(document).ready(function() {
 
 
 
-    $("#logout").click(function(event){
+    $("#logoutSlideMenu").click(function(event){
         Parse.User.logOut();
         location="Welcom.html";
     });
@@ -164,6 +164,10 @@ $(document).ready(function() {
 
 
 
+    $("#logoutDeskMenu").click(function(event){
+        Parse.User.logOut();
+        location="Welcom.html";
+    });
     $("#userlogout").click(function(event){
         Parse.User.logOut();
         location="Welcom.html";

@@ -20,7 +20,7 @@ $("#signUp").click(function(event){
     location = "SignUp.html";
 
 });
-    
+
 
 
 
