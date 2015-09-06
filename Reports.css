@@ -51,7 +51,9 @@ body{
     /*padding-top: 1vh;*/
     text-align: center;
 }
-
+#mobileMenuButton{
+    display: none;
+}
 #links li a{
     text-decoration: none;
     color: #FFFFFF;
