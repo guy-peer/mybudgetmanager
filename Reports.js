@@ -90,7 +90,12 @@ $(document).ready(function() {
     });
 
 
+    $("#saveReport").click(function(event){
 
+    });
+    $("#newReport").click(function(event){
+        location.reload();
+    });
 
     $("#userlogout").click(function(event){
         Parse.User.logOut();
