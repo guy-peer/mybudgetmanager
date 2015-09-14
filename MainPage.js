@@ -2,27 +2,21 @@ Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHp
 Parse.User.enableRevocableSession();
 $(document).ready(function() {
 
+    if (!Parse.User.current()) {
+        location = 'Welcom.html';
+    }
+
     $("#sideMenu").hide();
     var expanseDetails = {};
 
     var userName = (function () {
-        if (Parse.User.current()) {
-            return(Parse.User.current().get("username") +" "+"<a href='#'  id=userlogout >(logout)</a>"  );
-
-        }
-        else{
-            $("#current-user").html("");
-        }
+        return(Parse.User.current().get("username") +" "+"<a href='#'  id=userlogout >(logout)</a>"  );
     })();
 
     var MBudget = (function () {
-
-
-            return ("Monthly budget:" +" "+Parse.User.current().get("budget")+" "+"<a href=Settings.html>(Edit)</a>");
-
-
-
+        return ("Monthly budget:" +" "+Parse.User.current().get("budget")+" "+"<a href=Settings.html>(Edit)</a>");
     });
+
     var DBudget = (function () {
         if (Parse.User.current()) {
 
@@ -47,13 +41,9 @@ $(document).ready(function() {
         }
     })();
 
-
-
     $(".userName").html(userName);
     $(".monthlyBudget").html(MBudget);
     $(".leftToSpendToday").html(mobileDBudget);
-
-
 
     var htmlList = "";
     (function (){
@@ -66,13 +56,13 @@ $(document).ready(function() {
             objectId: cuser
         });
 
-
         query.find({
             success: function(results){
 
                 var keyValue = {};
 
-                for (var i in results) {
+                for (var i = 0 ; i < results.length ; i++) {
+
                     var category = results[i].get("Category");
                     var subCategory = results[i].get("SubCategory");
                     var amount = Number(results[i].get("Amount"));
@@ -156,22 +146,17 @@ $(document).ready(function() {
 
 
 
-    $("#logoutSlideMenu").click(function(event){
+    $("#logoutSlideMenu").click(logOut);
+
+    $("#logoutDeskMenu").click(logOut);
+
+    $("#userlogout").click(logOut);
+
+    function logOut(){
         Parse.User.logOut();
         location="Welcom.html";
-    });
+    }
 
-
-
-
-    $("#logoutDeskMenu").click(function(event){
-        Parse.User.logOut();
-        location="Welcom.html";
-    });
-    $("#userlogout").click(function(event){
-        Parse.User.logOut();
-        location="Welcom.html";
-    });
     var MSM = $("#mobileMenuButton");
         MSM.click(function(event) {
             $("#sideMenu").slideDown(400);

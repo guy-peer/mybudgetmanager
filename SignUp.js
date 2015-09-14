@@ -18,7 +18,7 @@ $(document).ready(function() {
         user.set("budget", budget )
         user.signUp(null, {
             success: function (user) {
-                location = "MainPage.html", checkLogin()
+                location = "MainPage.html";
             },
             error: function (user, error) {
                 console.log("signup error:" + error.message);

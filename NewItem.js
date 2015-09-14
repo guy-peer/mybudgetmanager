@@ -1,6 +1,11 @@
 Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHpAJIo0hyIxAasnru1adn1og");
 var categoryToSubCategory = {};
 $(document).ready(function() {
+
+    if (!Parse.User.current()) {
+        location = 'Welcom.html';
+    }
+
     $("#sideMenu").hide();
     var userName = (function () {
         if (Parse.User.current()) {
@@ -46,6 +51,7 @@ $(document).ready(function() {
 
     query.find({
         success: function (results) {
+
             for (var i = 0 ; i < results.length ; i++) {
                 var category = results[i].get("Category");
                 var subCategory = results[i].get("SubCategory");
@@ -62,68 +68,59 @@ $(document).ready(function() {
                         categoryToSubCategory[category] = [subCategory];
                     }
                 }
-
-
-
-
-                $("#savenewitem1").click(function () {
-                    var Category = $("#Category1").val();
-                    var Subcats = $("#SubCats1").val();
-                    var Amount = $("#Amount1").val();
-                    var user = Parse.User.current();
-                    var newItem = new Item();
-                    newItem.set("Category", Category);
-                    newItem.set("SubCategory", Subcats);
-                    newItem.set("Amount", Amount);
-                    newItem.set("user", user);
-                    newItem.save({
-                        success: function () {
-                            document.location = "MainPage.html";
-                        }
-                    });
-                });
-
-
-
-
-                $("#savenewitem2").click(function () {
-                    var Category2 = $("#Category2").val();
-                    var Subcats2 = $("#SubCats2").val();
-                    var Amount2 = $("#Amount2").val();
-                    var user2 = Parse.User.current();
-                    var newItem = new Item();
-                    newItem.set("Category", Category2);
-                    newItem.set("SubCategory", Subcats2);
-                    newItem.set("Amount", Amount2);
-                    newItem.set("user", user2);
-                    newItem.save({
-                        success: function () {
-                            document.location = "MainPage.html";
-                        }
-                    });
-                })
             }
 
+            $("#savenewitem1").click(function () {
+
+                var Category = $("#Category1").val();
+                var Subcats = $("#SubCats1").val();
+                var Amount = $("#Amount1").val();
+                var user = Parse.User.current();
+                var newItem = new Item();
+                newItem.set("Category", Category);
+                newItem.set("SubCategory", Subcats);
+                newItem.set("Amount", Amount);
+                newItem.set("user", user);
+                newItem.save({
+                    success: function () {
+                        document.location = "MainPage.html";
+                    }
+                });
+            });
+
+            $("#savenewitem2").click(function () {
+                var Category2 = $("#Category2").val();
+                var Subcats2 = $("#SubCats2").val();
+                var Amount2 = $("#Amount2").val();
+                var user2 = Parse.User.current();
+                var newItem = new Item();
+                newItem.set("Category", Category2);
+                newItem.set("SubCategory", Subcats2);
+                newItem.set("Amount", Amount2);
+                newItem.set("user", user2);
+                newItem.save({
+                    success: function () {
+                        document.location = "MainPage.html";
+                    }
+                });
+            })
+
+            $(document).trigger('dataLoaded');
         }
     });
 
-    $("#logoutDeskMenu").click(function (event) {
-        Parse.User.logOut();
-        location = "Welcom.html";
-    });
+    $("#logoutDeskMenu").click(logOut);
+    $("#userlogout").click(logOut);
+    $("#logoutSlideMenu").click(logOut);
 
-
-    $("#userlogout").click(function (event) {
+    function logOut(){
         Parse.User.logOut();
-        location = "Welcom.html";
-    });
-    $("#logoutSlideMenu").click(function (event) {
-        Parse.User.logOut();
-        location = "Welcom.html";
-    });
+        location="Welcom.html";
+    }
 
 
     $(document).on("dataLoaded", function() {
+
         var keys = Object.keys(categoryToSubCategory);
 
         for (var i = 0 ; i < keys.length ; i++){

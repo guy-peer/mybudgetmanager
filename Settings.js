@@ -4,6 +4,9 @@
 Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHpAJIo0hyIxAasnru1adn1og");
 $(document).ready(function() {
 
+    if (!Parse.User.current()) {
+        location = 'Welcom.html';
+    }
 
     $("#sideMenu").hide();
 
@@ -53,22 +56,14 @@ $(document).ready(function() {
     $("#monthlyBudget").html(MBudget);
     $("#leftToSpendToday").html(mobileDBudget);
 
-    $("#logoutSlideMenu").click(function(event){
+    $("#logoutSlideMenu").click(logOut);
+    $("#logoutDeskMenu").click(logOut);
+    $("#userlogout").click(logOut);
+
+    function logOut(){
         Parse.User.logOut();
         location="Welcom.html";
-    });
-
-
-
-
-    $("#logoutDeskMenu").click(function(event){
-        Parse.User.logOut();
-        location="Welcom.html";
-    });
-    $("#userlogout").click(function(event){
-        Parse.User.logOut();
-        location="Welcom.html";
-    });
+    }
 
 
     $("#saveNewBudgetAmount").click(function(){
