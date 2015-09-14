@@ -111,10 +111,6 @@ $(document).ready(function() {
         location="Welcom.html";
     });
 
-
-    $("#saveReport").click(function(event){
-
-    });
     $("#newReport").click(function(event){
         location.reload();
     });

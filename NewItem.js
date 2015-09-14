@@ -6,7 +6,10 @@ $(document).ready(function() {
         location = 'Welcom.html';
     }
 
+    var totalAmountSpentToday = 0;
+
     $("#sideMenu").hide();
+
     var userName = (function () {
         if (Parse.User.current()) {
             return ("logged in as:" + " " + Parse.User.current().get("username") + " " + "<a href='#'  id=userlogout  >(logout)</a>"  );
@@ -19,35 +22,35 @@ $(document).ready(function() {
     $("#user_name").html(userName);
     $(".container1").hide();
     $(".container2").hide();
-    $("#Ready").click(function () {
 
+    $("#Ready").click(function () {
         $("#Ready").slideUp(400);
         $("#Custom").slideUp(400);
         $(".container1").slideDown(500);
     });
+
     $("#Custom").click(function () {
         $("#Ready").slideUp(400);
         $("#Custom").slideUp(400);
         $(".container2").slideDown(500);
     });
+
     $("#Back1").click(function () {
         $(".container1").slideUp(400);
         $(".container2").slideUp(400);
         $("#Ready").slideDown(500);
         $("#Custom").slideDown(500);
     });
+
     $("#Back2").click(function () {
         $(".container1").slideUp(400);
-        ;
         $(".container2").slideUp(400);
-        ;
         $("#Ready").slideDown(400);
         $("#Custom").slideDown(400);
     });
 
-   var Item = Parse.Object.extend("Cost_Items");
+    var Item = Parse.Object.extend("Cost_Items");
     var query = new Parse.Query(Item);
-
 
     query.find({
         success: function (results) {
@@ -163,43 +166,54 @@ $(document).ready(function() {
     })();
 
     var MBudget = (function () {
-
-
         return ("Monthly budget:" +" "+Parse.User.current().get("budget")+" "+"<a href=Settings.html>(Edit)</a>");
-
-
-
     });
-    var DBudget = (function () {
-        if (Parse.User.current()) {
-
-            var a =(Parse.User.current().get("budget")/31);
-            a = parseFloat(a).toFixed(2);
-            return (a +" Left to spend today");
-        }
-        else{
-            $("#current-user").html("");
-        }
-    })();
 
     var mobileDBudget = (function () {
-        if (Parse.User.current()) {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        var monthStart = new Date(year, month, 1);
+        var monthEnd = new Date(2015, month + 1, 1);
+        var monthLength = Math.floor((monthEnd - monthStart) / (1000 * 60 * 60 * 24));
 
-            var a =(Parse.User.current().get("budget")/31);
-            a = parseFloat(a).toFixed(2);
-            return (a +" ");
-        }
-        else{
-            $("#current-user").html("");
-        }
+        var dailyBudget = (Parse.User.current().get("budget") / monthLength);
+
+        return dailyBudget;
     })();
 
+    (function() {
+        var Item = Parse.Object.extend("Cost_Items");
+        var cuser = Parse.User.current().id;
+        var query = new Parse.Query(Item);
+        var date = new Date();
+        query.lessThanOrEqualTo("createdAt", date);
+        query.greaterThanOrEqualTo("createdAt", new Date(date.getFullYear(), date.getMonth(), date.getDate()));
+        query.equalTo("user", {
+            __type: "Pointer",
+            className: "_User",
+            objectId: cuser
+        });
 
+        query.find({
+            success: function (results) {
+                for (var i = 0 ; i < results.length ; i++) {
+                    totalAmountSpentToday += Number(results[i].get("Amount"));
+                }
 
-    $("#userName").html(userName);
-    $("#monthlyBudget").html(MBudget);
-    $("#leftToSpendToday").html(mobileDBudget);
+                $(document).trigger('totalAmountSpentTodayLoaded');
+            }, error: function (error) {
+                console.log("Query Error:" + error.message)
+            }
+        });
+    })();
 
+    $(".userName").html(userName);
+    $(".monthlyBudget").html(MBudget);
+
+    $(document).on('totalAmountSpentTodayLoaded', function () {
+        $(".leftToSpendToday").html(parseFloat(mobileDBudget - totalAmountSpentToday).toFixed(2));
+    })
 
     var MSM = $("#mobileMenuButton");
     MSM.click(function(event) {
