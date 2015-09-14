@@ -121,7 +121,7 @@ body{
     border: none;
     top: 3vh;
     height: 6vh;
-    width: 20%;
+    width: 23%;
 }
 
 #Cancel{
@@ -132,7 +132,7 @@ body{
     height: 6vh;
     width: 20%;
 }
-#showReport{
+#showReport, #pieChartWrapper, #barChartWrapper{
     height: auto;
     width: 30%;
     margin-left: 35%;
@@ -161,8 +161,56 @@ body{
 
 }
 
+.ui-state-focus {
+    outline: none;
+}
 
-.ui-state-focus { outline: none; }
+#reportButton {
+    display: none;
+}
+
+#pieChartButton {
+    display: none;
+}
+
+#barChartButton {
+    display: none;
+}
+
+#pieChart, #barChart {
+    width: 90%;
+    margin-left: 5%;
+}
+
+#pieChart {
+    height: 90%;
+}
+
+#barChart {
+    height: 400px;
+}
+
+.barChartInfoWrapper {
+    color: black;
+    margin-left: 8%;
+    text-align: left;
+    display: none;
+}
+
+.square {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+}
+
+.blueSquare {
+    background-color: #382765;
+}
+
+.greenSquare {
+    background-color: #7BC225;
+}
+
 @media screen and (max-width: 1024px) {
 
     #mobileMenuButton{
@@ -230,16 +278,14 @@ body{
 
     }
     #userDetailsMobile{
-        display: inline-block;
+        display: block;
         width: 100%;
         background-color: lightgray;
-
         margin-left: 0;
-        padding-left: 17%;
     }
 
     #showDetailsMobile{
-        display: inline-block;
+        display: block;
     }
 
 
@@ -255,23 +301,17 @@ body{
     #Retrieve {
         width: 42%;
         margin-left: 3%;
-
     }
 
     #Cancel{
         margin-left: 5%;
         width: 42%;
     }
-    #showReport{
-
+    #showReport, #pieChartWrapper, #barChartWrapper{
         width: 100%;
         margin-left: 0;
-
-
         font-size: 1em;
-
         text-align: left;
-
     }
 
     #Items-List{
@@ -291,12 +331,8 @@ body{
 
     }
 
-
-
-
-
-
-
-
+    .barChartInfoWrapper {
+        margin-left: 5%;
+    }
 
 }

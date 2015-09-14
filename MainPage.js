@@ -6,6 +6,8 @@ $(document).ready(function() {
         location = 'Welcom.html';
     }
 
+    var totalAmountSpentToday = 0;
+
     $("#sideMenu").hide();
     var expanseDetails = {};
 
@@ -17,33 +19,51 @@ $(document).ready(function() {
         return ("Monthly budget:" +" "+Parse.User.current().get("budget")+" "+"<a href=Settings.html>(Edit)</a>");
     });
 
-    var DBudget = (function () {
-        if (Parse.User.current()) {
+    var mobileDBudget = (function () {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        var monthStart = new Date(year, month, 1);
+        var monthEnd = new Date(2015, month + 1, 1);
+        var monthLength = Math.floor((monthEnd - monthStart) / (1000 * 60 * 60 * 24));
 
-            var a =(Parse.User.current().get("budget")/31);
-            a = parseFloat(a).toFixed(2);
-            return (a +" Left to spend today");
-        }
-        else{
-            $("#current-user").html("");
-        }
+        var dailyBudget = (Parse.User.current().get("budget") / monthLength);
+
+        return dailyBudget;
     })();
 
-    var mobileDBudget = (function () {
-        if (Parse.User.current()) {
+    (function() {
+        var Item = Parse.Object.extend("Cost_Items");
+        var cuser = Parse.User.current().id;
+        var query = new Parse.Query(Item);
+        var date = new Date();
+        query.lessThanOrEqualTo("createdAt", date);
+        query.greaterThanOrEqualTo("createdAt", new Date(date.getFullYear(), date.getMonth(), date.getDate()));
+        query.equalTo("user", {
+            __type: "Pointer",
+            className: "_User",
+            objectId: cuser
+        });
 
-            var a =(Parse.User.current().get("budget")/31);
-            a = parseFloat(a).toFixed(2);
-            return (a +" ");
-        }
-        else{
-            $("#current-user").html("");
-        }
+        query.find({
+            success: function (results) {
+                for (var i = 0 ; i < results.length ; i++) {
+                    totalAmountSpentToday += Number(results[i].get("Amount"));
+                }
+
+                $(document).trigger('totalAmountSpentTodayLoaded');
+            }, error: function (error) {
+                console.log("Query Error:" + error.message)
+            }
+        });
     })();
 
     $(".userName").html(userName);
     $(".monthlyBudget").html(MBudget);
-    $(".leftToSpendToday").html(mobileDBudget);
+
+    $(document).on('totalAmountSpentTodayLoaded', function () {
+        $(".leftToSpendToday").html(parseFloat(mobileDBudget - totalAmountSpentToday).toFixed(2));
+    })
 
     var htmlList = "";
     (function (){
@@ -118,8 +138,6 @@ $(document).ready(function() {
 
                         myLi.appendChild(myDiv);
 
-
-
                         $('#Items-List').append(myLi);
                     }
                 }
@@ -133,10 +151,6 @@ $(document).ready(function() {
                     active: false,
                     collapsible: true
                 });
-
-
-
-
             }, error: function(error){
                 console.log("Query Error:"+error.message)
             }

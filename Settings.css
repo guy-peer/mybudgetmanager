@@ -234,15 +234,15 @@ body{
 
     }
 
-    #monthlyBudget {
+    .monthlyBudget {
         display: none;
     }
 
-    #leftToSpendToday {
+    .leftToSpendToday {
         display: none;
     }
 
-    #userName {
+    .userName {
         width: 30%;
     }
 

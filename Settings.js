@@ -1,60 +1,76 @@
 /**
  * Created by Guy Peer on 30/08/2015.
  */
-Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHpAJIo0hyIxAasnru1adn1og");
+
 $(document).ready(function() {
+    Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHpAJIo0hyIxAasnru1adn1og");
 
     if (!Parse.User.current()) {
         location = 'Welcom.html';
     }
 
+    var totalAmountSpentToday = 0;
+
     $("#sideMenu").hide();
 
+    var userName = (function () {
+        if (Parse.User.current()) {
+            return(Parse.User.current().get("username") +" "+"<a href='#'  id=userlogout  >(logout)</a>"  );
+        }
+        else{
+            $("#current-user").html("");
+        }
+    })();
 
+    var MBudget = (function () {
+        return ("Monthly budget:" +" "+Parse.User.current().get("budget")+" "+"<a href=Settings.html>(Edit)</a>");
+    });
 
-        var userName = (function () {
-            if (Parse.User.current()) {
-                return(Parse.User.current().get("username") +" "+"<a href='#'  id=userlogout  >(logout)</a>"  );
+    var mobileDBudget = (function () {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth();
+        var monthStart = new Date(year, month, 1);
+        var monthEnd = new Date(2015, month + 1, 1);
+        var monthLength = Math.floor((monthEnd - monthStart) / (1000 * 60 * 60 * 24));
 
-            }
-            else{
-                $("#current-user").html("");
-            }
-        })();
+        var dailyBudget = (Parse.User.current().get("budget") / monthLength);
 
-        var MBudget = (function () {
-            return ("Monthly budget:" +" "+Parse.User.current().get("budget")+" "+"<a href=Settings.html>(Edit)</a>");
+        return dailyBudget;
+    })();
+
+    (function() {
+        var Item = Parse.Object.extend("Cost_Items");
+        var cuser = Parse.User.current().id;
+        var query = new Parse.Query(Item);
+        var date = new Date();
+        query.lessThanOrEqualTo("createdAt", date);
+        query.greaterThanOrEqualTo("createdAt", new Date(date.getFullYear(), date.getMonth(), date.getDate()));
+        query.equalTo("user", {
+            __type: "Pointer",
+            className: "_User",
+            objectId: cuser
         });
 
-        var DBudget = (function () {
-            if (Parse.User.current()) {
+        query.find({
+            success: function (results) {
+                for (var i = 0 ; i < results.length ; i++) {
+                    totalAmountSpentToday += Number(results[i].get("Amount"));
+                }
 
-                var a =(Parse.User.current().get("budget")/31);
-                a = parseFloat(a).toFixed(2);
-                return (a +" Left to spend today");
+                $(document).trigger('totalAmountSpentTodayLoaded');
+            }, error: function (error) {
+                console.log("Query Error:" + error.message)
             }
-            else{
-                $("#current-user").html("");
-            }
-        })();
+        });
+    })();
 
-        var mobileDBudget = (function () {
-            if (Parse.User.current()) {
+    $(".userName").html(userName);
+    $(".monthlyBudget").html(MBudget);
 
-                var a =(Parse.User.current().get("budget")/31);
-                a = parseFloat(a).toFixed(2);
-                return (a +" ");
-            }
-            else{
-                $("#current-user").html("");
-            }
-        })();
-
-
-
-    $("#userName").html(userName);
-    $("#monthlyBudget").html(MBudget);
-    $("#leftToSpendToday").html(mobileDBudget);
+    $(document).on('totalAmountSpentTodayLoaded', function () {
+        $(".leftToSpendToday").html(parseFloat(mobileDBudget - totalAmountSpentToday).toFixed(2));
+    })
 
     $("#logoutSlideMenu").click(logOut);
     $("#logoutDeskMenu").click(logOut);
@@ -106,27 +122,7 @@ $(document).ready(function() {
                     }}
             )});
 
-
-
-
-
-
-
-
-
-
-
     $("#currentBudget").html(CBudget);
-
-
-
-
-
-
-
-
-
-
 });
 
 var CBudget = (function () {

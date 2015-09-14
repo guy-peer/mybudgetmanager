@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src=Reports.js></script>
+    <script src=Charts.js></script>
 
 
 </head>
@@ -41,9 +42,6 @@
         </ul>
     </div>
 </div>
-
-
-
 
 <div id="userDetailsDesk">
     <li id="showDetailsDesk">
@@ -75,13 +73,31 @@
     </div>
 </div>
 <div id="saveOrNew">
-    <button  id="saveReport">Save Reports</button>
-    <button  id="newReport">Start Fresh</button>
+    <button  id="saveReport">Save</button>
+    <button  id="newReport">New</button>
+    <button  id="reportButton">Report</button>
+    <button  id="pieChartButton">Pie Chart</button>
+    <button  id="barChartButton">Bar Chart</button>
 </div>
 <div id="showReport">
         <ul id="Items-List">
 
         </ul>
+</div>
+<div id="pieChartWrapper">
+    <canvas id="pieChart" width="300" height="300"></canvas>
+</div>
+<div id="barChartWrapper">
+    <canvas id="barChart"></canvas>
+    <div class="barChartInfoWrapper">
+        <span class="square blueSquare"></span>
+        <span> Daily Budget</span>
+    </div>
+    <div class="barChartInfoWrapper">
+        <span class="square greenSquare"></span>
+        <span>Daily Amount Spent</span>
+    </div>
+
 </div>
 
 </body>
