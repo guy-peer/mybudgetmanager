@@ -134,18 +134,64 @@ $(document).ready(function() {
     });
 
     var CMSM = $("#closeMobileMenuButton");
-    
+
     CMSM.click(function(event) {
         $("#sideMenu").slideUp(200);
     });
 
     function bindEditAndDeleteEvents() {
-        $(".editCostItem").bind("click", editCostItem)
+        $(".editCostItem").bind("click", createEditCostItemDiv)
         $(".deleteCostItem").bind("click", deleteCostItem)
     }
 
-    function editCostItem() {
+    function createEditCostItemDiv() {
+        var editCostItemDiv = document.createElement("div");
+        editCostItemDiv.id = $(this).closest('div').attr('id');
 
+        var editCostItemInput = document.createElement("input");
+        editCostItemInput.id = 'editCostItemValue';
+        editCostItemInput.type = 'text';
+        editCostItemInput.placeholder = 'New Amount';
+        editCostItemInput.setAttribute('autofocus', 'autofocus');
+
+        editCostItemDiv.appendChild(editCostItemInput);
+
+        var editCostItemInputButton = document.createElement("span");
+        editCostItemInputButton.id = 'editCostItemButton';
+        editCostItemInputButton.classList.add('changeCostItem');
+        editCostItemInputButton.textContent = 'Edit';
+
+        editCostItemDiv.appendChild(editCostItemInputButton);
+
+        $('#' + editCostItemDiv.id).replaceWith(editCostItemDiv);
+
+        $('#editCostItemButton').bind('click', editCostItem);
+    }
+
+    function editCostItem() {
+        var id = $(this).closest('div').attr('id');
+        var CostItem = Parse.Object.extend("Cost_Items");
+        var costItem = new CostItem();
+        costItem.id = id;
+
+        var newAmount = $('#editCostItemValue').val();
+
+        if (isNaN(newAmount) || Number(newAmount) <= 0) {
+            alert('Please enter a valid number')
+        }
+        else {
+            costItem.set("Amount", newAmount);
+
+            costItem.save(null, {
+                success: function(costItem) {
+                    location.reload();
+                },
+                error: function(costItem, error) {
+                    alert('Failed updating item');
+                    location.reload();
+                }
+            });
+        }
     }
 
     function deleteCostItem() {
@@ -161,8 +207,7 @@ $(document).ready(function() {
                 location.reload();
             },
             error: function(object, error) {
-                // The object was not retrieved successfully.
-                // error is a Parse.Error with an error code and description.
+                alert('Failed deleting item')
             }
         });
     }
