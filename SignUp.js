@@ -2,9 +2,10 @@
  * Created by Guy Peer on 30/08/2015.
  */
 $(document).ready(function() {
-    Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHpAJIo0hyIxAasnru1adn1og");
 
-
+    if (Parse.User.current()) {
+        location = "MainPage.html";
+    }
 
     $("#signUpButton").click(function (event) {
 

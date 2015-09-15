@@ -1,65 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Budget Manager Settings</title>
-    <link rel="stylesheet" href="Settings.css" type="text/css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src=Settings.js></script>
-</head>
-<body>
-<div id="sideMenu">
-    <li><a id="closeMobileMenuButton" href="#menu">&#9776;</a></li>
-    <li><a href="MainPage.html">Home</a></li>
-    <li><a href="Settings.html">Settings</a></li>
-    <li><a href="Reports.html">Reports</a></li>
-    <li><a href="#" id="logoutSlideMenu">Log Out</a></li>
-</div>
-<div id="allMenus">
-
-    <div id="logo">
-        <a id="mobileMenuButton" href="#menu">&#9776;</a>
-        <img id="imgLogo" src="budgetlogo2915.png">
-    </div>
-    <div id="menu">
-        <ul id="links">
+    <head>
+        <meta charset="UTF-8">
+        <title>Budget Manager Settings</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Site.css" type="text/css"/>
+        <link rel="stylesheet" href="Settings.css" type="text/css"/>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src=ParseInit.js></script>
+        <script src=Common.js></script>
+        <script src=Settings.js></script>
+    </head>
+    <body>
+        <div id="sideMenu">
+            <li><a id="closeMobileMenuButton" href="#menu">&#9776;</a></li>
             <li><a href="MainPage.html">Home</a></li>
             <li><a href="Settings.html">Settings</a></li>
             <li><a href="Reports.html">Reports</a></li>
-            <li><a href="#" id="logoutDeskMenu">Log Out</a></li>
-        </ul>
-    </div>
-</div>
-<div id = "userDetails">
-    <ul>
-        <li><p class ="userName"></p></li>
-        <li><p class ="monthlyBudget"></p></li>
-        <li><p class = "leftToSpendToday"></p></li>
-    </ul>
-
-
-</div>
-<div id="settingsSection">
-    <div id="settings">
-    <p id="newBudgetP"></p><p>Enter Total Budget Amount: <input type="text" id="newBudgetSum" class="totalBudgetSum"></p>
-    <button id="saveNewBudgetAmount">Save New Amount</button>
-    </div>
-    <div id="subBudget">
-    <p id="budgetForCategory"></p><p>Enter The Amount For /see comment/: <input type="text" id="newSubBudget"></p><!--/*js subcategory*/-->
-    <button id="saveNewSubBudgetAmount">Save Budget for </button><!--/"js subcategory"/-->
-    </div>
-    <div id="changeUsername">
-    <p id="newUsernameP"></p><p>Enter New Usernmae: <input type="text" id="newUserName"></p>
-    <button id="saveNewUsername">Save New Username</button>
-    </div>
-        <div id="Reset"><button id="eraseAll">Reset Account</button></div>
-
-
-</div>
-
-
-</body>
+            <li><a href="#" id="logoutSlideMenu">Log Out</a></li>
+        </div>
+        <div id="allMenus">
+            <div id="logo">
+                <a id="mobileMenuButton" href="#menu">&#9776;</a>
+                <img id="imgLogo" src="budgetlogo2915.png">
+            </div>
+            <div id="menu">
+                <ul id="links">
+                    <li><a href="MainPage.html">Home</a></li>
+                    <li><a href="Settings.html">Settings</a></li>
+                    <li><a href="Reports.html">Reports</a></li>
+                    <li><a href="#" id="logoutDeskMenu">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id = "userDetails">
+            <ul>
+                <li><p class ="userName"></p></li>
+                <li><p class ="monthlyBudget"></p></li>
+                <li><p class = "leftToSpendToday"></p></li>
+            </ul>
+        </div>
+        <div id="settingsSection">
+            <div id="settings">
+                <p id="newBudgetP"></p><p>Enter Total Budget Amount: <input type="text" id="newBudgetSum" class="totalBudgetSum"></p>
+                <button id="saveNewBudgetAmount">Save New Amount</button>
+            </div>
+            <div id="changeUsername">
+                <p id="newUsernameP"></p><p>Enter New Usernmae: <input type="text" id="newUserName"></p>
+                <button id="saveNewUsername">Save New Username</button>
+            </div>
+            <div id="Reset"><button id="eraseAll">Reset Account</button></div>
+        </div>
+    </body>
 </html>

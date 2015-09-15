@@ -1,11 +1,4 @@
 $(document).ready(function() {
-    Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHpAJIo0hyIxAasnru1adn1og");
-
-    if (!Parse.User.current()) {
-        location = 'Welcom.html';
-    }
-
-    var totalAmountSpentToday = 0;
 
     var expanseDetails = {};
     var barData = {
@@ -15,83 +8,14 @@ $(document).ready(function() {
 
     var pieData = [];
 
-    $("#sideMenu").hide();
     $("#showReport").hide();
     $("#Items-List").hide();
-    var userName = (function () {
-        if (Parse.User.current()) {
-            return(Parse.User.current().get("username") +" "+"<a href='#'  id=userlogout  >(logout)</a>"  );
-
-        }
-        else{
-            $("#current-user").html("");
-        }
-    })();
-
-    var MBudget = (function () {
-        return ("Monthly budget:" +" "+Parse.User.current().get("budget")+" "+"<a href=Settings.html>(Edit)</a>");
-    });
-
-    var mobileDBudget = (function () {
-        var date = new Date();
-        var year = date.getFullYear();
-        var month = date.getMonth();
-        var monthStart = new Date(year, month, 1);
-        var monthEnd = new Date(2015, month + 1, 1);
-        var monthLength = Math.floor((monthEnd - monthStart) / (1000 * 60 * 60 * 24));
-
-        var dailyBudget = (Parse.User.current().get("budget") / monthLength);
-
-        return dailyBudget;
-    })();
-
-    (function() {
-        var Item = Parse.Object.extend("Cost_Items");
-        var cuser = Parse.User.current().id;
-        var query = new Parse.Query(Item);
-        var date = new Date();
-        query.lessThanOrEqualTo("createdAt", date);
-        query.greaterThanOrEqualTo("createdAt", new Date(date.getFullYear(), date.getMonth(), date.getDate()));
-        query.equalTo("user", {
-            __type: "Pointer",
-            className: "_User",
-            objectId: cuser
-        });
-
-        query.find({
-            success: function (results) {
-                for (var i = 0 ; i < results.length ; i++) {
-                    totalAmountSpentToday += Number(results[i].get("Amount"));
-                }
-
-                $(document).trigger('totalAmountSpentTodayLoaded');
-            }, error: function (error) {
-                console.log("Query Error:" + error.message)
-            }
-        });
-    })();
-
-    $(".userName").html(userName);
-    $(".monthlyBudget").html(MBudget);
-
-    $(document).on('totalAmountSpentTodayLoaded', function () {
-        $(".leftToSpendToday").html(parseFloat(mobileDBudget - totalAmountSpentToday).toFixed(2));
-    })
-
-    var userName = (function () {
-        if (Parse.User.current()) {
-            return ("logged in as:" + " " + Parse.User.current().get("username") + " " + "<a href='#'  id=userlogout  >(logout)</a>"  );
-
-        }
-        else {
-            $("#current-user").html("");
-        }
-    });
 
     $("#showDetailsMobile").accordion({
         active: false,
         collapsible: true
     });
+
     $("#SDatePicker").datepicker();
     $("#EDatePicker").datepicker();
 
@@ -104,7 +28,6 @@ $(document).ready(function() {
     $("#Cancel").click(function(){
         location="Reports.html";
     });
-
 
     $("#logout").click(function(event){
         Parse.User.logOut();
@@ -166,7 +89,6 @@ $(document).ready(function() {
                 className: "_User",
                 objectId: cuser
             });
-
 
             query.find({
                 success: function (results) {
@@ -262,7 +184,6 @@ $(document).ready(function() {
             $("#showReport").show();
             $("#Items-List").show();
             $('#Items-List').append(categoryListItem);
-
         }
         else {
             $('#reportButton').show();
@@ -326,7 +247,7 @@ $(document).ready(function() {
 
         for (var date in amountSpentPerDay) {
             barData.labels.push(date);
-            dailyBudgetForBarChart.data.push(mobileDBudget);
+            dailyBudgetForBarChart.data.push(commonObj.dailyBudget);
             amountSpentForBarChart.data.push(amountSpentPerDay[date]);
         }
 
@@ -362,12 +283,15 @@ $(document).ready(function() {
     }
 
     var MSM = $("#mobileMenuButton");
+
     MSM.click(function(event) {
         $("#sideMenu").slideDown(400);
 
 
     });
+
     var CMSM = $("#closeMobileMenuButton");
+
     CMSM.click(function(event) {
         $("#sideMenu").slideUp(200);
     });

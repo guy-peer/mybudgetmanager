@@ -1,0 +1,218 @@
+.wrapper {
+    top: 0;
+    margin-top: 15%;
+    width: 100%;
+    height: 30%;
+    background-color: rgb(255, 153, 0);
+    display: inline-block;
+    overflow: hidden;
+}
+
+.container {
+    top: 0px;
+    padding-left: 38.2%;
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    color: rgb(255, 255, 255);
+}
+
+#welcomeLogo {
+    display: block;
+    padding-left: 3.5%;
+}
+
+#welcomeImgLogo {
+    height: 5vh;
+    margin-top: 2vh;
+}
+
+.form {
+    width: 100%;
+    height: 15vh;
+    padding-left: 5.3%;
+    display: block;
+    margin-top: 0em;
+}
+
+.form input {
+    border-style: none;
+    padding-bottom: 1vh;
+    margin-bottom: 1%;
+}
+
+#username {
+    background-color: transparent;
+    padding-top: 1%;
+    text-align: left;
+    color: #FFFFFF;
+    top: 5%;
+    outline: none;
+    border-bottom: solid;
+    border-bottom-color: #FFFFFF;
+    border-bottom-width: medium;
+}
+
+#password {
+    background-color: transparent;
+    padding-top: 1vh;
+    text-align: left;
+    color: #FFFFFF;
+    border-bottom: solid;
+    border-bottom-color: #FFFFFF;
+    border-bottom-width: medium;
+    outline: none;
+}
+
+#buttons {
+    height: 10vh;
+    width: 100%;
+    padding-left: 5.6%;
+    font-size: 3em;
+    display: block;
+}
+
+#login {
+    border-style: none;
+    background-color: #ffaf0e;
+    color: #FFFFFF;
+    font-size: 0.3em;
+    display: block;
+    text-align: center;
+    margin-bottom: -1%;
+}
+
+#signUp {
+    border-style: none;
+    background-color: #ffaf0e;
+    color: #FFFFFF;
+    font-size: 0.3em;
+    text-align: center;
+    margin-left: 4%;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: white;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: white;
+}
+
+:-ms-input-placeholder {
+    color: white;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #FF9900 inset;
+    -webkit-text-fill-color: #FFFFFF !important;
+}
+
+@media screen and (max-width: 1024px) {
+
+    body {
+        height: 100%;
+    }
+
+    .wrapper {
+        top: 0;
+        margin-top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(255, 153, 0);
+        display: inline-block;
+        overflow: hidden;
+    }
+
+    .container {
+        padding-left: 1%;
+    }
+
+    #welcomeLogo {
+        padding-top: 25%;
+        padding-left: 20%;
+    }
+
+    .form {
+        width: 100%;
+        height: 100%;
+        padding-left: 0;
+        display: block;
+    }
+
+    .form input {
+        border-style: none;
+        padding-bottom: 1vh;
+        margin-bottom: 1%;
+    }
+
+    #username {
+        background-color: transparent;
+        padding-top: 1%;
+        text-align: left;
+        color: #FFFFFF;
+        top: 5%;
+        outline: none;
+        border-bottom: solid;
+        border-bottom-color: #FFFFFF;
+        border-bottom-width: medium;
+        width: 80%;
+        margin-left: 10%;
+        height: 3%;
+        margin-top: 15%;
+        font-size: 4em;
+    }
+
+    #password {
+        background-color: transparent;
+        padding-top: 1vh;
+        text-align: left;
+        color: #FFFFFF;
+        border-bottom: solid;
+        border-bottom-color: #FFFFFF;
+        border-bottom-width: medium;
+        outline: none;
+        width: 80%;
+        margin-left: 10%;
+        height: 3%;
+        font-size: 4em;
+    }
+
+    #buttons {
+        height: auto;
+        width: 100%;
+        padding-left: 0;
+        font-size: 4em;
+        display: block;
+        margin-top: 10%;
+        text-align: center;
+    }
+
+    #login {
+        border-style: none;
+        background-color: #FF9900;
+        color: #FFFFFF;
+        font-size: 1em;
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    #signUp {
+        border-style: none;
+        background-color: #FF9900;
+        color: #FFFFFF;
+        font-size: 1em;
+        text-align: center;
+        margin-left: 0;
+    }
+}

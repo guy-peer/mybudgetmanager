@@ -1,69 +1,6 @@
-Parse.initialize("4Yh0GNbCzeWhZximIe9eu2opX686FSZiyytd156K", "3fIASb832eF2WdwfHpAJIo0hyIxAasnru1adn1og");
-Parse.User.enableRevocableSession();
 $(document).ready(function() {
 
-    if (!Parse.User.current()) {
-        location = 'Welcom.html';
-    }
-
-    var totalAmountSpentToday = 0;
-
-    $("#sideMenu").hide();
     var expanseDetails = {};
-
-    var userName = (function () {
-        return(Parse.User.current().get("username") +" "+"<a href='#'  id=userlogout >(logout)</a>"  );
-    })();
-
-    var MBudget = (function () {
-        return ("Monthly budget:" +" "+Parse.User.current().get("budget")+" "+"<a href=Settings.html>(Edit)</a>");
-    });
-
-    var mobileDBudget = (function () {
-        var date = new Date();
-        var year = date.getFullYear();
-        var month = date.getMonth();
-        var monthStart = new Date(year, month, 1);
-        var monthEnd = new Date(2015, month + 1, 1);
-        var monthLength = Math.floor((monthEnd - monthStart) / (1000 * 60 * 60 * 24));
-
-        var dailyBudget = (Parse.User.current().get("budget") / monthLength);
-
-        return dailyBudget;
-    })();
-
-    (function() {
-        var Item = Parse.Object.extend("Cost_Items");
-        var cuser = Parse.User.current().id;
-        var query = new Parse.Query(Item);
-        var date = new Date();
-        query.lessThanOrEqualTo("createdAt", date);
-        query.greaterThanOrEqualTo("createdAt", new Date(date.getFullYear(), date.getMonth(), date.getDate()));
-        query.equalTo("user", {
-            __type: "Pointer",
-            className: "_User",
-            objectId: cuser
-        });
-
-        query.find({
-            success: function (results) {
-                for (var i = 0 ; i < results.length ; i++) {
-                    totalAmountSpentToday += Number(results[i].get("Amount"));
-                }
-
-                $(document).trigger('totalAmountSpentTodayLoaded');
-            }, error: function (error) {
-                console.log("Query Error:" + error.message)
-            }
-        });
-    })();
-
-    $(".userName").html(userName);
-    $(".monthlyBudget").html(MBudget);
-
-    $(document).on('totalAmountSpentTodayLoaded', function () {
-        $(".leftToSpendToday").html(parseFloat(mobileDBudget - totalAmountSpentToday).toFixed(2));
-    })
 
     var htmlList = "";
     (function (){
@@ -157,13 +94,8 @@ $(document).ready(function() {
         });
     })();
 
-
-
-
     $("#logoutSlideMenu").click(logOut);
-
     $("#logoutDeskMenu").click(logOut);
-
     $("#userlogout").click(logOut);
 
     function logOut(){
@@ -174,16 +106,10 @@ $(document).ready(function() {
     var MSM = $("#mobileMenuButton");
         MSM.click(function(event) {
             $("#sideMenu").slideDown(400);
-
-
     });
+
     var CMSM = $("#closeMobileMenuButton");
     CMSM.click(function(event) {
         $("#sideMenu").slideUp(200);
-
-
     });
-
-
 });
-

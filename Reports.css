@@ -1,120 +1,25 @@
-html{
+html {
     overflow-x:  hidden;
     overflow-y: scroll;
 }
 
-body{
-    width: 100%;
-    overflow-x: hidden;
-    margin: 0 !important;
-    padding: 0 !important;
-    flex: auto;
-
-}
-
-#allMenus{
-    background-color: darkgray;
-    width: 100%;
-    display: inline-block;
-}
-
-
-#logo{
-    height: 4vh;
-    width: 100%;
-}
-
-#imgLogo{
-    height: 4vh;
-    padding-top: 1vh;
-    padding-left: 10%;
-    float: left;
-}
-
-
-
-#links{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
-
-}
-
-#links li{
-    display: inline;
-    width:15vh;
-    float: left;
-    padding-left: 10vh;
-    /*padding-top: 1vh;*/
-    text-align: center;
-}
-#mobileMenuButton{
-    display: none;
-}
-
-#links li a{
-    text-decoration: none;
-    color: #FFFFFF;
-    display: inline-block;
-    width: 10vh;
-    padding-right: 1vh;
-}
-
-#links li a:hover{
-    background-color: #FFFFFF;
-    color: #FF9900;
-}
-
-#userDetailsDesk{
-    width: 80%;
-    background-color: lightgray;
-    margin-left: 10%;
-    display: inline-block;
-
-}
-#userDetailsMobile {
-    display: none;
-}
-#showDetailsMobile{
-    display: none;
-}
-#showDetailsDesk {
-    color: #FFFFFF;
-    list-style-type: none;
-}
-#userDetailsDesk ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-#showDetailsDesk  li{
-    display: inline;
-    width:20vh;
-    float: left;
-    text-align: center;
+#showDetailsDesk  li {
     padding-left: 14%;
-    color: #FFFFFF;
-
-}
-#showDetailsDesk li a{
-    color: #E2062C;
 }
 
-#reportForm{
+#reportForm {
     top: 30%;
-
     width: 30%;
     height: 25vh;
     margin-left: 35%;
     padding-top: 5%;
     padding-bottom: 5%;
-
     font-size: 1.5em;
     background-color: #FF9900;
     text-align: center;
     color: #FFFFFF;
 }
+
 #Retrieve {
     color: #FFFFFF;
     background-color: #53d6a5;
@@ -124,7 +29,7 @@ body{
     width: 23%;
 }
 
-#Cancel{
+#Cancel {
     color: #FFFFFF;
     background-color: #E2062C;
     border: none;
@@ -132,7 +37,8 @@ body{
     height: 6vh;
     width: 20%;
 }
-#showReport, #pieChartWrapper, #barChartWrapper{
+
+#showReport, #pieChartWrapper, #barChartWrapper {
     height: auto;
     width: 30%;
     margin-left: 35%;
@@ -144,25 +50,13 @@ body{
     color: #FFFFFF;
 }
 
-#Items-List{
+#Items-List {
     list-style-type: none;
     padding-left: 2%;
     color: black;
     text-align: left;
     border-style: dashed;
     border-color: darkgray;
-
-
-}
-
-#Items-List li{
-    border-bottom-style: solid;
-    border-bottom-color: #FFFFFF;
-
-}
-
-.ui-state-focus {
-    outline: none;
 }
 
 #reportButton {
@@ -213,126 +107,52 @@ body{
 
 @media screen and (max-width: 1024px) {
 
-    #mobileMenuButton{
-        text-decoration: none;
-        color: #FFFFFF;
-        display: inline-block;
-        width:5vh;
-        left:5%;
-        float: left;
-        z-index: 5000;
-        margin-left: 1vh;
-    }
-    #logo{
-        height: 4vh;
-        width: 100%;
-        display: inline-block;
-    }
-
-
-    #imgLogo{
-        height: 100%;
-        padding-top: 1vh;
+    #imgLogo {
         padding-left: 9%;
-        width: 60%;
-
-
     }
-    #sideMenu {
-        display: inline-block;
-        list-style: none;
-        color: #FFFFFF;
-        float: left;
-        margin-left: 0;
-        background-color: darkslategray;
-        height: 100%;
-        width: 40%;
-        padding-top: 2%;
-        padding-left: 0;
-        position: fixed;
-        z-index: 1000;
-    }
-    #sideMenu li{
-        height: 5vh;
-    }
-    #sideMenu li a{
-        text-decoration: none;
-        color: #FFFFFF;
-        padding-bottom: 5%;
 
-
-    }
-    #closeMobileMenuButton{
+    #closeMobileMenuButton {
         left: 2%;
         margin-top: -2%;
     }
 
-    #linksMenu{
-        display: none;
-        padding: 0;
-    }
-
-
-    #userDetailsDesk{
-        display: none;
-
-    }
-    #userDetailsMobile{
+    #userDetailsMobile {
         display: block;
         width: 100%;
         background-color: lightgray;
         margin-left: 0;
     }
 
-    #showDetailsMobile{
+    #showDetailsMobile {
         display: block;
     }
 
-
-    #reportForm{
+    #reportForm {
         width: 100%;
         height: 100%;
         margin-left: 0;
         font-size: 1em;
         text-align: left;
-
-
     }
+
     #Retrieve {
         width: 42%;
         margin-left: 3%;
     }
 
-    #Cancel{
+    #Cancel {
         margin-left: 5%;
         width: 42%;
     }
-    #showReport, #pieChartWrapper, #barChartWrapper{
+
+    #showReport, #pieChartWrapper, #barChartWrapper {
         width: 100%;
         margin-left: 0;
         font-size: 1em;
         text-align: left;
     }
 
-    #Items-List{
-        list-style-type: none;
-        padding-left: 2%;
-        color: black;
-        text-align: left;
-        border-style: dashed;
-        border-color: darkgray;
-
-
-    }
-
-    #Items-List li{
-        border-bottom-style: solid;
-        border-bottom-color: #FFFFFF;
-
-    }
-
     .barChartInfoWrapper {
         margin-left: 5%;
     }
-
 }

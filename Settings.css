@@ -1,85 +1,25 @@
-html{
+html {
     overflow: hidden;
 }
-body{
-    width: 100%;
-    overflow: hidden;
 
-    margin: 0 !important;
-    padding: 0 !important;
-    flex: none;
-
-}
-
-.ui-state-focus { outline: none; }
-
-#allMenus{
-    background-color: darkgray;
-    width: 100%;
-    display: inline-block;
-}
-
-#logo{
-    height: 4vh;
-    width: 100%;
-}
-
-#imgLogo{
-    height: 4vh;
-    padding-top: 1vh;
-    padding-left: 10%;
-    float: left;
-}
-#mobileMenuButton{
-   display: none;
-}
-#menu{
+#menu {
     height: 3vh;
 }
 
-#links{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
-
-}
-
-#links li{
-    display: inline;
-    width:15vh;
-    float: left;
-    padding-left: 10vh;
-    /*padding-top: 1vh;*/
-    text-align: center;
-}
-
-#links li a{
-    text-decoration: none;
-    color: #FFFFFF;
-    display: inline-block;
-    width:10vh;
-    padding-right: 1vh;
-}
-
-#links li a:hover{
-    background-color: #FFFFFF;
-    color: #FF9900;
-}
-
-#userDetails{
+#userDetails {
     width: 80%;
     background-color: lightgray;
     margin-left: 10%;
     display: inline-block;
-
 }
-#userDetails ul{
+
+#userDetails ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-#userDetails ul li{
+
+#userDetails ul li {
     display: inline;
     width:20vh;
     float: left;
@@ -87,9 +27,11 @@ body{
     padding-left: 14%;
     color: #FFFFFF;
 }
-#userDetails ul li a{
+
+#userDetails ul li a {
     color: #E2062C;
 }
+
 #settingsSection {
     width: 70%;
     padding-top: 5%;
@@ -105,28 +47,25 @@ body{
     color: #FFFFFF;
 }
 
-#settings{
+#settings {
     width: 80%;
     padding-left: 30%;
     display: block;
+}
 
-}
-#subBudget{
+#changeUsername {
     width: 80%;
     padding-left: 30%;
     display: block;
 }
-#changeUsername{
+
+#Reset {
     width: 80%;
     padding-left: 30%;
     display: block;
 }
-#Reset{
-    width: 80%;
-    padding-left: 30%;
-    display: block;
-}
-#saveNewBudgetAmount{
+
+#saveNewBudgetAmount {
     width: 25%;
     background-color: #53e3a6;
     color: #FFFFFF;
@@ -135,7 +74,8 @@ body{
     margin-top: 1vh;
     margin-left: 8%;
 }
-#saveNewSubBudgetAmount{
+
+#saveNewUsername {
     width: 25%;
     background-color: #53e3a6;
     color: #FFFFFF;
@@ -144,16 +84,8 @@ body{
     margin-top: 1vh;
     margin-left: 8%;
 }
-#saveNewUsername{
-    width: 25%;
-    background-color: #53e3a6;
-    color: #FFFFFF;
-    border-style: none;
-    height: 4vh;
-    margin-top: 1vh;
-    margin-left: 8%;
-}
-#eraseAll{
+
+#eraseAll {
     width: 25%;
     background-color: #E2062C;
     color: #FFFFFF;
@@ -161,69 +93,18 @@ body{
     height: 4vh;
     margin-top: 4vh;
     margin-left: 8%;
-
 }
 
 @media screen and (max-width: 1024px) {
 
-    #mobileMenuButton{
-        text-decoration: none;
-        color: #FFFFFF;
-        display: inline-block;
-        width:5vh;
-        left:15%;
-        float: left;
-        z-index: 5000;
-        margin-left: 1vh;
-        margin-top: 0;
-    }
-    #logo{
-        height: 4vh;
-        width: 100%;
-        display: inline-block;
-    }
-
-
-    #imgLogo{
-        height: 100%;
-        padding-top: 1vh;
+    #imgLogo {
         padding-left: 7%;
-        width: 60%;
+    }
 
-
-    }
-    #sideMenu {
-        display: inline-block;
-        list-style: none;
-        color: #FFFFFF;
-        float: left;
-        margin-left: 0%;
-        background-color: darkslategray;
-        height: 100%;
-        width: 40%;
-        padding-top: 2%;
-        padding-left: 0%;
-        position: fixed;
-        z-index: 1000;
-    }
-    #sideMenu li{
-        height: 5vh;
-    }
-    #sideMenu li a{
-        text-decoration: none;
-        color: #FFFFFF;
-        padding-bottom: 5%;
-        height: 3vh;
-    }
-    #closeMobileMenuButton{
+    #closeMobileMenuButton {
         left: 2%;
         margin-top: 0;
         margin-left: 1vh;
-    }
-
-    #linksMenu{
-        display: none;
-        padding: 0;
     }
 
     #userDetails {
@@ -231,7 +112,6 @@ body{
         margin-left: 0;
         float: none;
         margin-top: 0;
-
     }
 
     .monthlyBudget {
@@ -253,7 +133,6 @@ body{
         font-size: 1em;
         height: 2%;
         display: inline;
-
     }
 
     #settingsSection {
@@ -263,54 +142,44 @@ body{
         font-size: 1em;
         color: #FFFFFF;
         text-align: center;
-
     }
 
-    #listOfSettings{
+    #listOfSettings {
         width: 70%;
-
         display: block;
+    }
 
-    }
-    #settings{
-        width: 100%;
-        padding-left: 0;
-
-
-    }
-    #subBudget{
-        width: 100%;
-        padding-left: 0;
-    }
-    #changeUsername{
-        width: 100%;
-        padding-left: 0;
-    }
-    #Reset{
+    #settings {
         width: 100%;
         padding-left: 0;
     }
 
+    #changeUsername {
+        width: 100%;
+        padding-left: 0;
+    }
 
-    #saveNewBudgetAmount{
-        width: 70%;
-        margin-left: 0%;
+    #Reset {
+        width: 100%;
+        padding-left: 0;
+    }
 
-    }
-    #saveNewSubBudgetAmount{
+    #saveNewBudgetAmount {
         width: 70%;
         margin-left: 0%;
     }
-    #saveNewUsername{
-        width: 70%;
-        margin-left: 0%;
-    }
-    #eraseAll{
-        width: 70%;
-        margin-left: 0%;
-    }
-#menu{
-    display: none;
-}
 
+    #saveNewUsername {
+        width: 70%;
+        margin-left: 0%;
+    }
+
+    #eraseAll {
+        width: 70%;
+        margin-left: 0%;
+    }
+
+    #menu {
+        display: none;
+    }
 }
