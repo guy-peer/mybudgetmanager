@@ -76,7 +76,6 @@ $(document).ready(function() {
                             myP.classList.add('costItemText');
                             myP.textContent = existingItemExpanseDetails[i].subCategory + ' - ' + existingItemExpanseDetails[i].amount + ' - ' + existingItemExpanseDetails[i].date;
 
-
                             pHolder.appendChild(myP);
 
                             var editCostItem = document.createElement("span");
@@ -149,7 +148,7 @@ $(document).ready(function() {
         editCostItemDiv.id = $(this).closest('div').attr('id');
 
         var editCostItemInput = document.createElement("input");
-        editCostItemInput.id = 'editCostItemValue';
+        editCostItemInput.classList.add('editCostItemValue');
         editCostItemInput.type = 'text';
         editCostItemInput.placeholder = 'New Amount';
         editCostItemInput.setAttribute('autofocus', 'autofocus');
@@ -157,7 +156,7 @@ $(document).ready(function() {
         editCostItemDiv.appendChild(editCostItemInput);
 
         var editCostItemInputButton = document.createElement("span");
-        editCostItemInputButton.id = 'editCostItemButton';
+        editCostItemInputButton.classList.add('editCostItemButton');
         editCostItemInputButton.classList.add('changeCostItem');
         editCostItemInputButton.textContent = 'Edit';
 
@@ -165,7 +164,7 @@ $(document).ready(function() {
 
         $('#' + editCostItemDiv.id).replaceWith(editCostItemDiv);
 
-        $('#editCostItemButton').bind('click', editCostItem);
+        $('.editCostItemButton').bind('click', editCostItem);
     }
 
     function editCostItem() {
@@ -174,7 +173,7 @@ $(document).ready(function() {
         var costItem = new CostItem();
         costItem.id = id;
 
-        var newAmount = $('#editCostItemValue').val();
+        var newAmount = $('#' + id + ' .editCostItemValue').val();
 
         if (isNaN(newAmount) || Number(newAmount) <= 0) {
             alert('Please enter a valid number')
