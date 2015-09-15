@@ -20,6 +20,7 @@ $(document).ready(function() {
 
                 for (var i = 0 ; i < results.length ; i++) {
 
+                    var id = results[i].id;
                     var category = results[i].get("Category");
                     var subCategory = results[i].get("SubCategory");
                     var amount = Number(results[i].get("Amount"));
@@ -27,9 +28,10 @@ $(document).ready(function() {
 
                     if (category && amount && !isNaN(amount) && subCategory && date) {
                         var singleExpanseDetail = {};
+                        singleExpanseDetail['id'] = id;
                         singleExpanseDetail['subCategory'] = subCategory;
                         singleExpanseDetail['amount'] = amount;
-                        singleExpanseDetail['date'] = date;
+                        singleExpanseDetail['date'] = utils.formatDate(date);
 
                         if (expanseDetails[category]) {
                             expanseDetails[category].push(singleExpanseDetail);
@@ -67,10 +69,30 @@ $(document).ready(function() {
                         var myDiv = document.createElement("div");
                         for (var i in existingItemExpanseDetails){
 
+                            var pHolder = document.createElement("div");
+                            pHolder.id = existingItemExpanseDetails[i].id;
+
                             var myP = document.createElement("p");
+                            myP.classList.add('costItemText');
                             myP.textContent = existingItemExpanseDetails[i].subCategory + ' - ' + existingItemExpanseDetails[i].amount + ' - ' + existingItemExpanseDetails[i].date;
 
-                            myDiv.appendChild(myP);
+
+                            pHolder.appendChild(myP);
+
+                            var editCostItem = document.createElement("span");
+                            editCostItem.classList.add('changeCostItem');
+                            editCostItem.classList.add('editCostItem');
+                            editCostItem.textContent = 'Edit';
+
+                            var deleteCostItem = document.createElement("span");
+                            deleteCostItem.classList.add('changeCostItem');
+                            deleteCostItem.classList.add('deleteCostItem');
+                            deleteCostItem.textContent = 'Delete';
+
+                            pHolder.appendChild(editCostItem);
+                            pHolder.appendChild(deleteCostItem);
+
+                            myDiv.appendChild(pHolder);
                         }
 
                         myLi.appendChild(myDiv);
@@ -78,6 +100,8 @@ $(document).ready(function() {
                         $('#Items-List').append(myLi);
                     }
                 }
+
+                bindEditAndDeleteEvents();
 
                 $("#Items-List").accordion({
                     active: false,
@@ -104,12 +128,42 @@ $(document).ready(function() {
     }
 
     var MSM = $("#mobileMenuButton");
+
         MSM.click(function(event) {
             $("#sideMenu").slideDown(400);
     });
 
     var CMSM = $("#closeMobileMenuButton");
+    
     CMSM.click(function(event) {
         $("#sideMenu").slideUp(200);
     });
+
+    function bindEditAndDeleteEvents() {
+        $(".editCostItem").bind("click", editCostItem)
+        $(".deleteCostItem").bind("click", deleteCostItem)
+    }
+
+    function editCostItem() {
+
+    }
+
+    function deleteCostItem() {
+
+        var id = $(this).closest('div').attr('id');
+        var costItem = Parse.Object.extend("Cost_Items");
+        var query = new Parse.Query(costItem);
+
+        query.get(id, {
+            success: function(myObj) {
+                // The object was retrieved successfully.
+                myObj.destroy({});
+                location.reload();
+            },
+            error: function(object, error) {
+                // The object was not retrieved successfully.
+                // error is a Parse.Error with an error code and description.
+            }
+        });
+    }
 });

@@ -17,6 +17,22 @@
     padding-left: inherit;
 }
 
+.costItemText {
+    display: inline-block;
+}
+
+.changeCostItem {
+    margin-left: 3%;
+    color: blue;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .changeCostItem:hover {
+        cursor: pointer;
+    }
+}
+
 @media screen and (max-width: 1024px) {
 
     #imgLogo {
