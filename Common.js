@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     if (!Parse.User.current()) {
-        location = 'Welcome.html';
+        location = 'index.html';
     }
 
     $("#sideMenu").hide();
