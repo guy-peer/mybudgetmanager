@@ -169,7 +169,7 @@ input:-webkit-autofill {
         margin-left: 10%;
         height: 3%;
         margin-top: 15%;
-        font-size: 4em;
+        font-size: 1.5em;
     }
 
     #password {
@@ -184,7 +184,7 @@ input:-webkit-autofill {
         width: 80%;
         margin-left: 10%;
         height: 3%;
-        font-size: 4em;
+        font-size: 1.5em;
     }
 
     #buttons {
