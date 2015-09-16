@@ -199,17 +199,17 @@ input:-webkit-autofill {
 
     #login {
         border-style: none;
-        background-color: #FF9900;
+        background-color: #ffaf0e;
         color: #FFFFFF;
         font-size: 1.5em;
         display: block;
         text-align: center;
-        width: 80%;
+        width: 100%;
     }
 
     #signUp {
         border-style: none;
-        background-color: #FF9900;
+        background-color: #ffaf0e;
         color: #FFFFFF;
         font-size: 1em;
         text-align: center;
