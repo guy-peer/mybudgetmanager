@@ -201,7 +201,7 @@ input:-webkit-autofill {
         border-style: none;
         background-color: #FF9900;
         color: #FFFFFF;
-        font-size: 0.5em;
+        font-size: 1.5em;
         display: block;
         text-align: center;
         width: 80%;
@@ -211,9 +211,9 @@ input:-webkit-autofill {
         border-style: none;
         background-color: #FF9900;
         color: #FFFFFF;
-        font-size: 0.5em;
+        font-size: 1em;
         text-align: center;
         margin-left: 0;
-        margin-top: 15%;
+        margin-top: 35%;
     }
 }
