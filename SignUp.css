@@ -1,0 +1,138 @@
+body{
+    width: 100%;
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: auto;
+    height: 100%;
+}
+
+.container{
+    background-color: #FF9900;
+    display: inline-block;
+    height: 100vh;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 0;
+    border-style: none;
+}
+
+.inputs{
+    border-style: none;
+}
+.header{
+    color: #FFFFFF;
+    font-size: 1.5em;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: white;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: white;
+}
+
+:-ms-input-placeholder {
+    color: white;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #FF9900 inset;
+    -webkit-text-fill-color: #FFFFFF !important;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .container{
+        width: 100%;
+        margin-left: 0;
+
+    }
+
+    .header{
+        margin-top: 15%;
+        margin-left: -3%;
+        text-align: center;
+        font-size: 3em;
+    }
+
+    .inputs{
+        display: block;
+        width: 100%;
+
+    }
+
+    #username{
+        background-color: transparent;
+        padding-top: 1%;
+        text-align: left;
+        color: #FFFFFF;
+        top: 5%;
+        outline: none;
+        border-bottom: solid;
+        border-bottom-color: #FFFFFF;
+        border-bottom-width: medium;
+        width: 80%;
+        margin-left: 10%;
+        height: 3%;
+        margin-top: 15%;
+        font-size: 1em;
+    }
+
+    #password{
+        background-color: transparent;
+        padding-top: 1vh;
+        text-align: left;
+        color: #FFFFFF;
+        border-bottom: solid;
+        border-bottom-color: #FFFFFF;
+        border-bottom-width: medium;
+        outline: none;
+        width: 80%;
+        margin-left: 10%;
+        height: 3%;
+        font-size: 1em;
+    }
+
+    #monthly_budget{
+        background-color: transparent;
+        padding-top: 1vh;
+        text-align: left;
+        color: #FFFFFF;
+        border-bottom: solid;
+        border-bottom-color: #FFFFFF;
+        border-bottom-width: medium;
+        outline: none;
+        width: 80%;
+        margin-left: 10%;
+        height: 3%;
+        font-size: 1em;
+    }
+
+
+    #signUpButton{
+        border-style: none;
+        background-color: #ffaf0e;
+        color: #FFFFFF;
+        margin-top: 15vh;
+        margin-left: 41%;
+        font-size: 1.5em;
+        width: 10vh;
+        height: 3vh;
+    }
+
+
+
+
+
+}
