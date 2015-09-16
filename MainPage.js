@@ -123,7 +123,7 @@ $(document).ready(function() {
 
     function logOut(){
         Parse.User.logOut();
-        location="Welcom.html";
+        location="index.html";
     }
 
     var MSM = $("#mobileMenuButton");

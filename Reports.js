@@ -31,7 +31,7 @@ $(document).ready(function() {
 
     $("#logout").click(function(event){
         Parse.User.logOut();
-        location="Welcom.html";
+        location="index.html";
     });
 
     $("#newReport").click(function(event){
