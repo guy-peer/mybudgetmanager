@@ -1,11 +1,18 @@
 $(document).ready(function() {
 
     var expanseDetails = {};
+
+    /*
+     * Object to populate the data for the bar graph
+     */
     var barData = {
         labels:[],
         datasets: []
     };
 
+    /*
+     * Object to populate the data for the pie graph
+     */
     var pieData = [];
 
     $("#showReport").hide();
@@ -33,6 +40,9 @@ $(document).ready(function() {
         location.reload();
     });
 
+    /*
+     * Retrieve the report data for the selected dates
+     */
     $("#Retrieve").click(function() {
 
         var startDateElement = $("#SDatePicker");
@@ -63,7 +73,6 @@ $(document).ready(function() {
             return;
         }
 
-        var htmlList = "";
         (function () {
             var Item = Parse.Object.extend("Cost_Items");
             var cuser = Parse.User.current().id;
@@ -109,12 +118,18 @@ $(document).ready(function() {
         })();
     });
 
+    /*
+     * Populate the reports details after the data is loaded
+     */
     $(document).on('dataLoaded', function(){
         createItemList();
         fillPieChartData();
         fillBarChartData();
     });
 
+    /*
+     * Create the textual report
+     */
     function createItemList(){
 
         var isDataEmpty = true;
@@ -178,6 +193,9 @@ $(document).ready(function() {
         }
     }
 
+    /*
+     * Fill the pie chart data
+     */
     function fillPieChartData(){
         for (var category in expanseDetails) {
             var totalCategoryAmount = 0;
@@ -192,11 +210,14 @@ $(document).ready(function() {
             {
                 value: totalCategoryAmount,
                 label: category,
-                color: getRandomColor()
+                color: utils.getRandomColor()
             });
         }
     }
 
+    /*
+     * Fill the bar chart data
+     */
     function fillBarChartData(){
         var dailyBudgetForBarChart =
         {
@@ -241,15 +262,6 @@ $(document).ready(function() {
         barData.datasets.push(amountSpentForBarChart);
     }
 
-    function getRandomColor() {
-        var letters = '0123456789ABCDEF'.split('');
-        var color = '#';
-        for (var i = 0; i < 6; i++ ) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
-
     var MSM = $("#mobileMenuButton");
 
     MSM.click(function(event) {
@@ -266,6 +278,9 @@ $(document).ready(function() {
 
     var slidePieChartWrapperUp = false;
 
+    /*
+     * Pie chart button click event
+     */
     $('#pieChartButton').click(function(){
         $("#showReport").slideUp(400);
         $("#barChartWrapper").slideUp(400);
@@ -278,6 +293,9 @@ $(document).ready(function() {
         slidePieChartWrapperUp = true;
     });
 
+    /*
+     * Bar chart button click event
+     */
     $('#barChartButton').click(function(){
         $("#showReport").slideUp(400);
 
@@ -293,6 +311,9 @@ $(document).ready(function() {
         var barChart = new Chart(barContext).Bar(barData);
     });
 
+    /*
+     * Textual report button click event
+     */
     $('#reportButton').click(function(){
         if (slidePieChartWrapperUp) {
             $("#pieChartWrapper").slideUp(400);

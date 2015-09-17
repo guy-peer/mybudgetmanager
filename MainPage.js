@@ -2,7 +2,9 @@ $(document).ready(function() {
 
     var expanseDetails = {};
 
-    var htmlList = "";
+    /*
+     * Get all the categories and cost items from Parse and populate the html
+     */
     (function (){
         var Item = Parse.Object.extend("Cost_Items");
         var cuser = Parse.User.current().id;
@@ -16,7 +18,7 @@ $(document).ready(function() {
         query.find({
             success: function(results){
 
-                var keyValue = {};
+                var categoryToAmount = {};
 
                 for (var i = 0 ; i < results.length ; i++) {
 
@@ -40,43 +42,48 @@ $(document).ready(function() {
                             expanseDetails[category] = [singleExpanseDetail];
                         }
 
-
-                        if (keyValue[category]) {
-                            keyValue[category] += amount;
+                        /*
+                         * If the category was already retrieved, add the amount, else, set the new category with the amount
+                         */
+                        if (categoryToAmount[category]) {
+                            categoryToAmount[category] += amount;
                         }
                         else {
-                            keyValue[category] = amount;
+                            categoryToAmount[category] = amount;
                         }
                     }
                 }
 
-                for (var key in keyValue) {
-                    if (keyValue.hasOwnProperty(key)) {
+                /*
+                 * Populate the html with all the categories, cost items and amounts
+                 */
+                for (var category in categoryToAmount) {
+                    if (categoryToAmount.hasOwnProperty(category)) {
 
-                        var myLi = document.createElement("li");
-                        myLi.id = key;
-                        myLi.className = 'existing_items';
+                        var categoryListItem = document.createElement("li");
+                        categoryListItem.id = category;
+                        categoryListItem.className = 'existing_items';
 
-                        var myH3 = document.createElement("h3");
-                        myH3.textContent = key +":"+ " "+ keyValue[key];
+                        var categoryHeader = document.createElement("h3");
+                        categoryHeader.textContent = category +":"+ " "+ categoryToAmount[category];
                         var editButton = document.createElement("button");
                         editButton.textContent = "Edit";
-                        var existingItemExpanseDetails = expanseDetails[key];
+                        var existingItemExpanseDetails = expanseDetails[category];
 
 
-                        myLi.appendChild(myH3);
+                        categoryListItem.appendChild(categoryHeader);
 
-                        var myDiv = document.createElement("div");
+                        var expanseDetailsWrapper = document.createElement("div");
                         for (var i in existingItemExpanseDetails){
 
-                            var pHolder = document.createElement("div");
-                            pHolder.id = existingItemExpanseDetails[i].id;
+                            var costItemWrapper = document.createElement("div");
+                            costItemWrapper.id = existingItemExpanseDetails[i].id;
 
-                            var myP = document.createElement("p");
-                            myP.classList.add('costItemText');
-                            myP.textContent = existingItemExpanseDetails[i].subCategory + ' - ' + existingItemExpanseDetails[i].amount + ' - ' + existingItemExpanseDetails[i].date;
+                            var costItemText = document.createElement("p");
+                            costItemText.classList.add('costItemText');
+                            costItemText.textContent = existingItemExpanseDetails[i].subCategory + ' - ' + existingItemExpanseDetails[i].amount + ' - ' + existingItemExpanseDetails[i].date;
 
-                            pHolder.appendChild(myP);
+                            costItemWrapper.appendChild(costItemText);
 
                             var editCostItem = document.createElement("span");
                             editCostItem.classList.add('changeCostItem');
@@ -88,15 +95,15 @@ $(document).ready(function() {
                             deleteCostItem.classList.add('deleteCostItem');
                             deleteCostItem.textContent = 'Delete';
 
-                            pHolder.appendChild(editCostItem);
-                            pHolder.appendChild(deleteCostItem);
+                            costItemWrapper.appendChild(editCostItem);
+                            costItemWrapper.appendChild(deleteCostItem);
 
-                            myDiv.appendChild(pHolder);
+                            expanseDetailsWrapper.appendChild(costItemWrapper);
                         }
 
-                        myLi.appendChild(myDiv);
+                        categoryListItem.appendChild(expanseDetailsWrapper);
 
-                        $('#Items-List').append(myLi);
+                        $('#Items-List').append(categoryListItem);
                     }
                 }
 
@@ -129,11 +136,17 @@ $(document).ready(function() {
         $("#sideMenu").slideUp(200);
     });
 
+    /*
+     * Add click events for the dynamically generated edit and delete buttons
+     */
     function bindEditAndDeleteEvents() {
         $(".editCostItem").bind("click", createEditCostItemDiv)
         $(".deleteCostItem").bind("click", deleteCostItem)
     }
 
+    /*
+     * Create the "Edit cost item div", and replace the "Cost item div" with it
+     */
     function createEditCostItemDiv() {
         var editCostItemDiv = document.createElement("div");
         editCostItemDiv.id = $(this).closest('div').attr('id');
@@ -158,6 +171,9 @@ $(document).ready(function() {
         $('.editCostItemButton').bind('click', editCostItem);
     }
 
+    /*
+     * Edit cost item
+     */
     function editCostItem() {
         var id = $(this).closest('div').attr('id');
         var CostItem = Parse.Object.extend("Cost_Items");
@@ -170,22 +186,37 @@ $(document).ready(function() {
             alert('Please enter a valid number')
         }
         else {
-            costItem.set("Amount", newAmount);
 
-            costItem.save(null, {
-                success: function(costItem) {
-                    location.reload();
-                },
-                error: function(costItem, error) {
-                    alert('Failed updating item');
-                    location.reload();
-                }
-            });
+            var editCostItem = true;
+
+            if (!commonObj.isAmountInDailyBudget(newAmount)) {
+                editCostItem = confirm("You are about to go over your daily budget. Continue anyway?")
+            }
+
+            if (!commonObj.isAmountInInMonthlyBudget(newAmount)) {
+                editCostItem = confirm("You are about to go over your monthly budget. Continue anyway?")
+            }
+
+            if (editCostItem) {
+                costItem.set("Amount", newAmount);
+
+                costItem.save(null, {
+                    success: function(costItem) {
+                        location.reload();
+                    },
+                    error: function(costItem, error) {
+                        alert('Failed updating item');
+                        location.reload();
+                    }
+                });
+            }
         }
     }
 
+    /*
+     * Delete cost item
+     */
     function deleteCostItem() {
-
         var id = $(this).closest('div').attr('id');
         var costItem = Parse.Object.extend("Cost_Items");
         var query = new Parse.Query(costItem);

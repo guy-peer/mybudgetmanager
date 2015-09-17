@@ -4,18 +4,27 @@ $(document).ready(function() {
 
     $(".addItemContainer").hide();
 
+    /*
+     * Ready button click event
+     */
     $("#Ready").click(function () {
         $("#Ready").slideUp(400);
         $("#Custom").slideUp(400);
         $("#addReadyItemContainer").slideDown(500);
     });
 
+    /*
+     * Custom button click event
+     */
     $("#Custom").click(function () {
         $("#Ready").slideUp(400);
         $("#Custom").slideUp(400);
         $("#addCustomItemContainer").slideDown(500);
     });
 
+    /*
+     * Cancel button click event
+     */
     $(".cancelButton").click(function () {
         $(".addItemContainer").slideUp(400);
         $("#Ready").slideDown(500);
@@ -25,6 +34,9 @@ $(document).ready(function() {
     var Item = Parse.Object.extend("Cost_Items");
     var query = new Parse.Query(Item);
 
+    /*
+     * Get all the categories and sub-categories from Parse
+     */
     query.find({
         success: function (results) {
 
@@ -46,6 +58,9 @@ $(document).ready(function() {
                 }
             }
 
+            /*
+             * Save the new cost item
+             */
             $(".saveButton").click(function () {
 
                 var prefix =  $(this).closest('div').attr('id') == 'readyButtons' ? 'ready' : 'custom';
@@ -54,11 +69,11 @@ $(document).ready(function() {
 
                 var insertCostItem = true;
 
-                if (!isAmountInDailyBudget(Amount)) {
+                if (!commonObj.isAmountInDailyBudget(Amount)) {
                     insertCostItem = confirm("You are about to go over your daily budget. Continue anyway?")
                 }
 
-                if (!isAmountInInMonthlyBudget(Amount)) {
+                if (!commonObj.isAmountInInMonthlyBudget(Amount)) {
                     insertCostItem = confirm("You are about to go over your monthly budget. Continue anyway?")
                 }
 
@@ -83,20 +98,9 @@ $(document).ready(function() {
         }
     });
 
-    function isAmountInDailyBudget(amount) {
-        if (commonObj.dailyBudget - commonObj.totalAmountSpentToday - amount >= 0) {
-            return true;
-        }
-        return false;
-    }
-
-    function isAmountInInMonthlyBudget(amount) {
-        if (commonObj.monthlyBudget - commonObj.totalAmountSpentThisMonth - amount >= 0) {
-            return true;
-        }
-        return false;
-    }
-
+    /*
+     * Add the categories to the combo-box after the data is loaded
+     */
     $(document).on("dataLoaded", function() {
 
         var keys = Object.keys(categoryToSubCategory);
@@ -113,6 +117,9 @@ $(document).ready(function() {
         })
     });
 
+    /*
+     * Add the sub-categories to the combo-box
+     */
     function list(array_list) {
         $("#readySubCategories").html("");
         var pleaseSelectOption = document.createElement('option');

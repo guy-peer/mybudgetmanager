@@ -4,6 +4,9 @@
 
 $(document).ready(function() {
 
+    /*
+     * saveNewBudgetAmount button click event
+     */
     $("#saveNewBudgetAmount").click(function(){
         var newBudget = $("#newBudgetSum").val();
 
@@ -33,6 +36,9 @@ $(document).ready(function() {
         }
     });
 
+    /*
+     * saveNewUsername button click event
+     */
     $("#saveNewUsername").click(function(){
         var newName = $("#newUserName").val();
 

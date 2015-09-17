@@ -7,6 +7,9 @@ $(document).ready(function() {
         location = "MainPage.html";
     }
 
+    /*
+     * Login with user name and password
+     */
     $("#login").click(function(event){
 
         var name = $("#username").val();
@@ -17,11 +20,17 @@ $(document).ready(function() {
                 location = "MainPage.html";
             },
             error: function(user, error){
-                console.log("log in error:"+error.message)
+                alert('Incorrect user name or password');
+                $("#username").val('');
+                $("#password").val('');
+                $("#username").focus();
             }
         });
     });
 
+    /*
+     * Go to the sign up page
+     */
     $("#signUp").click(function(event){
         location = "SignUp.html";
     });

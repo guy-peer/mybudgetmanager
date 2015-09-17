@@ -3,10 +3,16 @@
  */
 $(document).ready(function() {
 
+    /*
+     * If the user is already logged in, go the the main page
+     */
     if (Parse.User.current()) {
         location = "MainPage.html";
     }
 
+    /*
+     * signUp button click event
+     */
     $("#signUpButton").click(function (event) {
 
         var isValid = true;

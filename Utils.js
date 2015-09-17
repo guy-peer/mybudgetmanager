@@ -3,6 +3,9 @@
  */
 var utilsObject = (function() {
 
+    /*
+     * Format a date to a presentable date
+     */
     this.formatDate = (function (date) {
 
         var day = date.getDate().toString();
@@ -19,7 +22,19 @@ var utilsObject = (function() {
         var formattedDate = day + '/' + month + '/' + year + ' ' + hour + ':' + minute + ':' + second;
 
         return formattedDate;
-    })
+    });
+
+    /*
+     * Generate a random color
+     */
+    this.getRandomColor = (function() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    });
 });
 
 window.utils = new utilsObject();
