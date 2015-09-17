@@ -6,32 +6,6 @@ html {
     height: 3vh;
 }
 
-#userDetails {
-    width: 80%;
-    background-color: lightgray;
-    margin-left: 10%;
-    display: inline-block;
-}
-
-#userDetails ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#userDetails ul li {
-    display: inline;
-    width:20vh;
-    float: left;
-    text-align: center;
-    padding-left: 14%;
-    color: #FFFFFF;
-}
-
-#userDetails ul li a {
-    color: #E2062C;
-}
-
 #optionsButtons {
     padding-left: 37.5%;
     padding-top: 10%;
@@ -55,7 +29,7 @@ html {
     font-size: 1.5em;
 }
 
-.container1 {
+.addItemContainer {
     width: 24%;
     padding-top: 5%;
     padding-bottom: 5%;
@@ -70,22 +44,7 @@ html {
     color: #FFFFFF;
 }
 
-.container2 {
-    width: 26%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    display: block;
-    margin-top: 0;
-    background-color: #FF9900;
-    position: relative;
-    left: 36%;
-    padding-left: 2%;
-    text-align: left;
-    font-size: 1.5em;
-    color: #FFFFFF;
-}
-
-#savenewitem1, #savenewitem2 {
+.saveButton {
     width: 25%;
     background-color: #53e3a6;
     color: #FFFFFF;
@@ -95,16 +54,7 @@ html {
     margin-left: 19%;
 }
 
-#Back1 {
-    width: 25%;
-    background-color: #E2062C;
-    color: #FFFFFF;
-    border-style: none;
-    height: 4vh;
-    margin-top: 4vh;
-}
-
-#Back2 {
+.cancelButton {
     width: 25%;
     background-color: #E2062C;
     color: #FFFFFF;
@@ -146,35 +96,7 @@ html {
         display: none;
         padding: 0;
     }
-
-    #userDetails {
-        width: 100%;
-        margin-left: 0%;
-        float: none;
-        margin-top: 0;
-    }
-
-    .monthlyBudget {
-        display: none;
-    }
-
-    .leftToSpendToday {
-        display: none;
-    }
-
-    .userName {
-        width: 30%;
-    }
-
-    #userDetails ul li {
-        width: 100%;
-        text-align: center;
-        padding-left: 35%;
-        font-size: 1em;
-        height: 2%;
-        display: inline;
-    }
-
+    
     #optionsButtons {
         padding-left: 0;
         padding-top: 0;
@@ -202,38 +124,22 @@ html {
         margin-left: 1%;
     }
 
-    .container1 {
+    .addItemContainer {
         width: 100%;
         padding-top: 5%;
         padding-bottom: 5%;
         left: 0;
     }
 
-    .container2 {
-        width: 100%;
-        padding-top: 5%;
-        padding-bottom: 5%;
-        left: 0;
-    }
-
-    #savenewitem1, #savenewitem2 {
+    .saveButton {
         width: 20%;
         height: 4vh;
         margin-top: 4vh;
         margin-left: 27%;
     }
 
-    #Back1 {
+    .cancelButton {
         width: 20%;
-    }
-
-    #Back2 {
-        width: 25%;
-        background-color: #E2062C;
-        color: #FFFFFF;
-        border-style: none;
-        height: 4vh;
-        margin-top: 4vh;
     }
 
     #closeMobileMenuButton {

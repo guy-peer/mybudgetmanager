@@ -29,23 +29,9 @@ $(document).ready(function() {
         location="Reports.html";
     });
 
-    $("#logout").click(function(event){
-        Parse.User.logOut();
-        location="index.html";
-    });
-
     $("#newReport").click(function(event){
         location.reload();
     });
-
-    $("#userlogout").click(logOut);
-    $("#logoutDeskMenu").click(logOut);
-    $("#logoutSlideMenu").click(logOut);
-
-    function logOut(){
-        Parse.User.logOut();
-        location="Welcom.html";
-    }
 
     $("#Retrieve").click(function() {
 

@@ -103,6 +103,32 @@ body {
     outline: none;
 }
 
+#userDetails {
+    width: 80%;
+    background-color: lightgray;
+    margin-left: 10%;
+    display: inline-block;
+}
+
+#userDetails ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#userDetails ul li {
+    display: inline;
+    width:20vh;
+    float: left;
+    text-align: center;
+    padding-left: 14%;
+    color: #FFFFFF;
+}
+
+#userDetails ul li a {
+    color: #E2062C;
+}
+
 @media screen and (max-width: 1024px) {
 
     #mobileMenuButton {
@@ -162,5 +188,33 @@ body {
 
     #userDetailsDesk {
         display: none;
+    }
+
+    #userDetails {
+        width: 100%;
+        margin-left: 0;
+        float: none;
+        margin-top: 0;
+    }
+
+    #userDetails .monthlyBudget {
+        display: none;
+    }
+
+    #userDetails .leftToSpendToday {
+        display: none;
+    }
+
+    #userDetails .userName {
+        width: 30%;
+    }
+
+    #userDetails ul li {
+        width: 100%;
+        text-align: center;
+        padding-left: 35%;
+        font-size: 1em;
+        height: 2%;
+        display: inline;
     }
 }

@@ -117,15 +117,6 @@ $(document).ready(function() {
         });
     })();
 
-    $("#logoutSlideMenu").click(logOut);
-    $("#logoutDeskMenu").click(logOut);
-    $("#userlogout").click(logOut);
-
-    function logOut(){
-        Parse.User.logOut();
-        location="index.html";
-    }
-
     var MSM = $("#mobileMenuButton");
 
         MSM.click(function(event) {

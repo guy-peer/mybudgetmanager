@@ -6,32 +6,6 @@ html {
     height: 3vh;
 }
 
-#userDetails {
-    width: 80%;
-    background-color: lightgray;
-    margin-left: 10%;
-    display: inline-block;
-}
-
-#userDetails ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#userDetails ul li {
-    display: inline;
-    width:20vh;
-    float: left;
-    text-align: center;
-    padding-left: 14%;
-    color: #FFFFFF;
-}
-
-#userDetails ul li a {
-    color: #E2062C;
-}
-
 #settingsSection {
     width: 70%;
     padding-top: 5%;
@@ -105,34 +79,6 @@ html {
         left: 2%;
         margin-top: 0;
         margin-left: 1vh;
-    }
-
-    #userDetails {
-        width: 100%;
-        margin-left: 0;
-        float: none;
-        margin-top: 0;
-    }
-
-    .monthlyBudget {
-        display: none;
-    }
-
-    .leftToSpendToday {
-        display: none;
-    }
-
-    .userName {
-        width: 30%;
-    }
-
-    #userDetails ul li {
-        width: 100%;
-        text-align: center;
-        padding-left: 35%;
-        font-size: 1em;
-        height: 2%;
-        display: inline;
     }
 
     #settingsSection {

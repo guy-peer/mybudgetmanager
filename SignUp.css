@@ -25,7 +25,7 @@ body{
     font-size: 1.5em;
 }
 
-#username{
+#username, #password, #monthly_budget{
     background-color: transparent;
     padding-top: 1%;
     text-align: left;
@@ -36,17 +36,7 @@ body{
     border-bottom-color: #FFFFFF;
     border-bottom-width: medium;
 }
-#password{
-    background-color: transparent;
-    padding-top: 1%;
-    text-align: left;
-    color: #FFFFFF;
-    top: 5%;
-    outline: none;
-    border-bottom: solid;
-    border-bottom-color: #FFFFFF;
-    border-bottom-width: medium;
-}
+
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     background-color: transparent;
     color: #FFFFFF;

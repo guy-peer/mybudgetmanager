@@ -3,10 +3,6 @@ html {
     overflow-y: scroll;
 }
 
-#showDetailsDesk  li {
-    padding-left: 14%;
-}
-
 #reportForm {
     top: 30%;
     width: 30%;
@@ -114,17 +110,6 @@ html {
     #closeMobileMenuButton {
         left: 2%;
         margin-top: -2%;
-    }
-
-    #userDetailsMobile {
-        display: block;
-        width: 100%;
-        background-color: lightgray;
-        margin-left: 0;
-    }
-
-    #showDetailsMobile {
-        display: block;
     }
 
     #reportForm {

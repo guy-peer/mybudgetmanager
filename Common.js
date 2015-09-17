@@ -80,15 +80,23 @@ $(document).ready(function() {
             });
         })();
 
-        $(".userName").html(this.userName + " "+"<a href='#'  id=userlogout >(logout)</a>" );
+        $(".userName").html(this.userName);
 
         $(document).on('totalAmountSpentThisMonthLoaded', function () {
-            $(".monthlyBudget").html("Monthly budget:" + " " + (commonObj.monthlyBudget - commonObj.totalAmountSpentThisMonth) + " " + "<a href=Settings.html>(Edit)</a>");
+            $(".monthlyBudget").html("Monthly budget:" + " " + (commonObj.monthlyBudget - commonObj.totalAmountSpentThisMonth));
         });
 
         $(document).on('totalAmountSpentTodayLoaded', function () {
-            $(".leftToSpendToday").html(parseFloat(commonObj.dailyBudget - commonObj.totalAmountSpentToday).toFixed(2));
+            $(".leftToSpendToday").html("Daily budget:" + " " + parseFloat(commonObj.dailyBudget - commonObj.totalAmountSpentToday).toFixed(2));
         });
+
+        $("#logoutSlideMenu").click(logOut);
+        $("#logoutDeskMenu").click(logOut);
+
+        function logOut(){
+            Parse.User.logOut();
+            location="index.html";
+        }
     });
 
     window.commonObj = new commonObject();

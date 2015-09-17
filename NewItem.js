@@ -2,33 +2,24 @@ $(document).ready(function() {
 
     var categoryToSubCategory = {};
 
-    $(".container1").hide();
-    $(".container2").hide();
+    $(".addItemContainer").hide();
 
     $("#Ready").click(function () {
         $("#Ready").slideUp(400);
         $("#Custom").slideUp(400);
-        $(".container1").slideDown(500);
+        $("#addReadyItemContainer").slideDown(500);
     });
 
     $("#Custom").click(function () {
         $("#Ready").slideUp(400);
         $("#Custom").slideUp(400);
-        $(".container2").slideDown(500);
+        $("#addCustomItemContainer").slideDown(500);
     });
 
-    $("#Back1").click(function () {
-        $(".container1").slideUp(400);
-        $(".container2").slideUp(400);
+    $(".cancelButton").click(function () {
+        $(".addItemContainer").slideUp(400);
         $("#Ready").slideDown(500);
         $("#Custom").slideDown(500);
-    });
-
-    $("#Back2").click(function () {
-        $(".container1").slideUp(400);
-        $(".container2").slideUp(400);
-        $("#Ready").slideDown(400);
-        $("#Custom").slideDown(400);
     });
 
     var Item = Parse.Object.extend("Cost_Items");
@@ -55,9 +46,11 @@ $(document).ready(function() {
                 }
             }
 
-            $("#savenewitem1").click(function () {
+            $(".saveButton").click(function () {
 
-                var Amount = $("#Amount1").val();
+                var prefix =  $(this).closest('div').attr('id') == 'readyButtons' ? 'ready' : 'custom';
+
+                var Amount = $('#' + prefix + 'Amount').val();
 
                 var insertCostItem = true;
 
@@ -70,12 +63,12 @@ $(document).ready(function() {
                 }
 
                 if (insertCostItem) {
-                    var Category = $("#Category1").val();
-                    var Subcats = $("#SubCats1").val();
+                    var Category = $('#' + prefix + 'Category').val();
+                    var SubCategories = $('#' + prefix + 'SubCategories').val();
                     var user = Parse.User.current();
                     var newItem = new Item();
                     newItem.set("Category", Category);
-                    newItem.set("SubCategory", Subcats);
+                    newItem.set("SubCategory", SubCategories);
                     newItem.set("Amount", Amount);
                     newItem.set("user", user);
                     newItem.save({
@@ -85,23 +78,6 @@ $(document).ready(function() {
                     });
                 }
             });
-
-            $("#savenewitem2").click(function () {
-                var Category2 = $("#Category2").val();
-                var Subcats2 = $("#SubCats2").val();
-                var Amount2 = $("#Amount2").val();
-                var user2 = Parse.User.current();
-                var newItem = new Item();
-                newItem.set("Category", Category2);
-                newItem.set("SubCategory", Subcats2);
-                newItem.set("Amount", Amount2);
-                newItem.set("user", user2);
-                newItem.save({
-                    success: function () {
-                        document.location = "MainPage.html";
-                    }
-                });
-            })
 
             $(document).trigger('dataLoaded');
         }
@@ -121,15 +97,6 @@ $(document).ready(function() {
         return false;
     }
 
-    $("#logoutDeskMenu").click(logOut);
-    $("#userlogout").click(logOut);
-    $("#logoutSlideMenu").click(logOut);
-
-    function logOut(){
-        Parse.User.logOut();
-        location="index.html";
-    }
-
     $(document).on("dataLoaded", function() {
 
         var keys = Object.keys(categoryToSubCategory);
@@ -138,26 +105,26 @@ $(document).ready(function() {
             var opt = document.createElement('option');
             opt.value = keys[i];
             opt.textContent = keys[i];
-            $("#Category1").append(opt);
+            $("#readyCategory").append(opt);
         }
 
-        $("#Category1").on('change', function () {
+        $("#readyCategory").on('change', function () {
             list(categoryToSubCategory[$(this).val()])
         })
     });
 
     function list(array_list) {
-        $("#SubCats1").html("");
+        $("#readySubCategories").html("");
         var pleaseSelectOption = document.createElement('option');
         pleaseSelectOption.value = '';
         pleaseSelectOption.textContent = '-- Please Select --';
-        $("#SubCats1").append(pleaseSelectOption);
+        $("#readySubCategories").append(pleaseSelectOption);
 
         $(array_list).each(function (i) {
             var opt = document.createElement('option');
             opt.value = this.toString();
             opt.textContent = this.toString();
-            $("#SubCats1").append(opt);
+            $("#readySubCategories").append(opt);
 
         });
     }
